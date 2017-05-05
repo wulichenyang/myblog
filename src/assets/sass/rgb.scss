@@ -1,0 +1,25 @@
+$red: #ff0000;
+$border-grey: #d6d2d2;
+$text-grey: #737373;
+
+.text-colorful {
+  background-color: #ff0000;
+  background:-webkit-linear-gradient(left, #FF0000, #FF6600 30%, #FFFF00 40%, #66FF00 50%, #0099FF 75%, #006666 90%, #000066);
+  background:-o-linear-gradient(left, #FF0000, #FF6600 30%, #FFFF00 40%, #66FF00 50%, #0099FF 75%, #006666 90%, #000066);
+  background:linear-gradient(to right, #FF0000, #FF6600 30%, #FFFF00 40%, #66FF00 50%, #0099FF 75%, #006666 90%, #000066);
+  filter: progid:DXImageTransform.Microsoft.Gradient(to right, #FF0000, #FF6600 30%, #FFFF00 40%, #66FF00 50%, #0099FF 75%, #006666 90%, #000066);
+  color:white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-red2blue {
+  background-color: #ff0000;
+  background:-webkit-linear-gradient(left, #FF0000, #FF0000 46%, #0099FF 54%, #0099FF);
+  background:-o-linear-gradient(left, #FF0000, #FF0000 46%, #0099FF 54%, #0099FF);
+  background:linear-gradient(to right, #FF0000, #FF0000 46%, #0099FF 54%, #0099FF);
+  filter: progid:DXImageTransform.Microsoft.Gradient(to right, #FF0000, #FF0000 46%, #0099FF 54%, #0099FF);
+  color:white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
