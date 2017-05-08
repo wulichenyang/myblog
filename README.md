@@ -1,4 +1,4 @@
-# Cocacola Fe
+# My Blog
 Website For Cocacola Built By AngularJS
 
 ## Installation & Usage

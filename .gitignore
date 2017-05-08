@@ -4,6 +4,6 @@ dist
 
 npm-debug.log
 .DS_Store
-
+.vscode
 
 cocacola-release*
