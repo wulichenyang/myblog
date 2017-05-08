@@ -51,15 +51,16 @@ const pathSrc = {
   //css
   css : [
     './src/assets/css/bootstrap.min.css',
-    './src/assets/css/AdminLTE.min.css',
-    './src/assets/css/skin-red-light.min.css',
-    './src/assets/css/app.css',
     './src/assets/css/angular-toasty.min.css',
     './src/assets/css/dataTables.bootstrap.css',
     './src/assets/css/font-awesome.css',
     './src/assets/css/ionocions.min.css',
     './src/assets/css/oop.css',
     './src/assets/css/select.min.css',
+    './src/assets/css/font-icons.css',
+    './src/assets/css/github.css',
+    './src/assets/css/reset.css',
+    './src/assets/css/meterial-icon.css',
   ],
   sass : [
     './src/assets/sass/common.scss'
