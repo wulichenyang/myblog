@@ -30,16 +30,11 @@ const pathSrc = {
     './src/assets/angular/ui-bootstrap-tpls.js',
     // third-part js
     './src/assets/js/bootstrap.min.js',
-    './src/assets/js/highchart-entry.js',
-    './src/assets/js/highmaps-map.js',
-    './src/assets/js/highcharts-export.js',
-    './src/assets/js/highcharts-more.js',
-    './src/assets/js/highcharts-ng.min.js',
-    './src/assets/js/cn-all.js',
+    './src/assets/js/owl-animate.js',
+    './src/assets/js/font-awesome.js',
+    './src/assets/js/jquery.popup.js',
     './src/assets/js/init.min.js',
-    './src/assets/js/jquery.slimscroll.min.js',
-    './src/assets/js/select-tpls.min.js',
-    './src/assets/js/unslider.min.js',
+    
   ],
   initScript : [
     './src/assets/js/init.min.js'
@@ -52,15 +47,16 @@ const pathSrc = {
   css : [
     './src/assets/css/bootstrap.min.css',
     './src/assets/css/angular-toasty.min.css',
-    './src/assets/css/dataTables.bootstrap.css',
     './src/assets/css/font-awesome.css',
     './src/assets/css/ionocions.min.css',
     './src/assets/css/oop.css',
     './src/assets/css/select.min.css',
-    './src/assets/css/font-icons.css',
-    './src/assets/css/github.css',
-    './src/assets/css/reset.css',
-    './src/assets/css/meterial-icon.css',
+    './src/assets/css/fonts-gstatic.css',
+    './src/assets/css/magnific-popup.css',
+    './src/assets/css/owl-theme.css',
+    './src/assets/css/owl-animate.css',
+    './src/assets/css/bootstrap.theme.min.css',
+
   ],
   sass : [
     './src/assets/sass/common.scss'
