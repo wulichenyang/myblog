@@ -26,14 +26,11 @@ const pathSrc = {
     './src/assets/angular/angular-modal-service.min.js',
     './src/assets/angular/angular-toasty.min.js',
     './src/assets/angular/angular-ui-router.min.js',
-    './src/assets/angular/ui-bootstrap.js',
-    './src/assets/angular/ui-bootstrap-tpls.js',
     // third-part js
     './src/assets/js/bootstrap.min.js',
     './src/assets/js/owl-animate.js',
     './src/assets/js/font-awesome.js',
     './src/assets/js/jquery.popup.js',
-    './src/assets/js/init.min.js',
     
   ],
   initScript : [
