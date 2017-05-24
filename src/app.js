@@ -24,4 +24,24 @@ angular.module('myApp', ['ui.router', 'app.modules'])
 					},
 				},
 			})
+
+			// main page for blog, about, ...
+			.state('main', {
+              	'url': '/main',
+				'views': {
+					'header': {
+						'templateUrl': locat + '/html/main/main.html',
+						// 'controller': 'mainCtrl'
+					},
+				},
+			})
+			.state('main.blog', {
+				'url': '/blog',
+				'views': {
+					'mainContent': {
+						'templateUrl': locat + '/html/main/blog/blog.html',
+						// 'controller': 'blogCtrl'
+					},
+				},
+			})
 	}])

@@ -3,10 +3,10 @@
 <div id="menu-item" class="menu-item hide-menu">
   <div class="container">
     <ul>
-      <a ui-sref="index.home">
+      <a href="index.html">
         <li>home</li>
       </a>
-      <a ui-sref="main.blog">
+      <a href="#about">
         <li>about</li>
       </a>
       <a href="#expertise">
@@ -49,16 +49,16 @@
                         <a ui-sref="main.blog">blog</a>
                       </li>
                       <li>
-                        <a href="#expertise">expertise</a>
+                        <a href="#/expertise">expertise</a>
                       </li>
                       <li>
-                        <a href="#workstation">workstation</a>
+                        <a href="#/workstation">workstation</a>
                       </li>
                       <li>
-                        <a href="#team">team</a>
+                        <a href="#/team">team</a>
                       </li>
                       <li>
-                        <a href="#contact">contact</a>
+                        <a href="#/contact">contact</a>
                       </li>
                       <li>
                         <a href="elements.html">Elements</a>
@@ -91,7 +91,7 @@
   </header>
 
   <div class="content-wrapper fadeIn">
-      <div ui-view="content" class="main-content"></div>
+      <div ui-view="mainContent" class="main-content"></div>
   </div>
 
   <footer class="footer">
