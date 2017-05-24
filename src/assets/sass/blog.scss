@@ -1,0 +1,35 @@
+.main-header {
+	height: 50rem !important;
+	min-height: 0;
+	background-image: url(/blog-art.jpg);
+}
+.main-intro-box{
+	display: table;
+	padding: 13rem;
+	text-align: center;
+	width: 100%;
+	.intro {
+		h1 {
+			padding-bottom: 5rem;
+		}
+	}
+}
+.my-blog {
+    .blog-art-title {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        color: #575a5b;
+        text-align: center;
+        font-weight: 200;
+        font-size: 3rem;
+    }
+    .art-intro-wrapper {
+        background-color: #f7f7f7;
+        box-shadow: 0px 1px #ddedf1;
+        border: 1px solid #ddedf1;
+        padding: 0;
+        cursor: pointer;
+        margin-bottom: 5rem;
+    }
+
+}

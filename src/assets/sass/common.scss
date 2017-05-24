@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 @import './rgb';
+@import './blog';
 
 @import 'https://fonts.googleapis.com/css?family=Lora:400,400i,700|Raleway:300,600,700,900';
 @import 'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css';
@@ -391,13 +392,28 @@ section{
 
 
 /*Home page*/
-.header{
+.header{							
 	background-image: url(/1.jpg);
 	height: 100vh;
 	position: relative;
 	min-height: 659px;
 }
-
+.main-header {
+	height: 50rem !important;
+	min-height: 0;
+	background-image: url(/blog-art.jpg);
+}
+.main-intro-box{
+	display: table;
+	padding: 13rem;
+	text-align: center;
+	width: 100%;
+	.intro {
+		h1 {
+			padding-bottom: 5rem;
+		}
+	}
+}
 .intro-box{
 	height: 100vh;
 	display: table;
