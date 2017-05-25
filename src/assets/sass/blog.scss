@@ -22,14 +22,42 @@
         text-align: center;
         font-weight: 200;
         font-size: 3rem;
+        border-bottom: 1px solid #eee;
     }
     .art-intro-wrapper {
         background-color: #f7f7f7;
-        box-shadow: 0px 1px #ddedf1;
-        border: 1px solid #ddedf1;
+        box-shadow: 0px 1px #ddd;
         padding: 0;
         cursor: pointer;
         margin-bottom: 5rem;
-    }
+        a:hover .art-content-wrapper{
+            background-color: #fcfcfc;
+        }
+        .art-img-wrapper{
+            max-height: 20rem;
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        .art-content-wrapper {
 
+            transition: all  ease .3s;
+            -moz-transition: all  ease .3s;
+            -webkit-transition: all  ease .3s;
+
+            padding: 2rem;
+            h2 {
+                padding-bottom: 1rem;
+                margin-bottom: 0;
+                font-weight: 700;
+                border-bottom: 1px solid #eee;
+            }
+            p {
+                word-break: break-all;
+                padding: .6rem 0;
+            }
+        }
+    }
 }
