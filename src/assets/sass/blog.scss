@@ -30,6 +30,7 @@
         padding: 0;
         cursor: pointer;
         margin-bottom: 5rem;
+        overflow: hidden;
         a:hover .art-content-wrapper{
             background-color: #fcfcfc;
         }
@@ -42,21 +43,43 @@
             }
         }
         .art-content-wrapper {
-
+            height: 26rem;
             transition: all  ease .3s;
             -moz-transition: all  ease .3s;
             -webkit-transition: all  ease .3s;
 
             padding: 2rem;
             h2 {
+                height: 4rem;
                 padding-bottom: 1rem;
                 margin-bottom: 0;
                 font-weight: 700;
                 border-bottom: 1px solid #eee;
+                overflow: hidden;
             }
             p {
-                word-break: break-all;
+                height: 12rem;
                 padding: .6rem 0;
+                overflow: hidden;
+                word-break: break-all;
+            }
+            .artist-wrapper {
+                padding-top: 1rem;
+                img {
+                    float: left;
+                    display: inline-block;
+                    width: 4rem;
+                    height: 4rem;
+                    border-radius: 50%;
+                }
+                span {
+                    display: inline-block;
+                    margin-left: 2rem;
+                    line-height: 4rem;
+                    color: #666;
+                    font-size: 2rem;
+                    font-family: cursive
+                }
             }
         }
     }
