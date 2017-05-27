@@ -1,7 +1,7 @@
 .main-header {
 	height: 50rem !important;
 	min-height: 0;
-	background-image: url(/blog-art.jpg);
+	background-image: url(/blog/blog-art.jpg);
 }
 .main-intro-box{
 	display: table;
@@ -35,7 +35,7 @@
             background-color: #fcfcfc;
         }
         .art-img-wrapper{
-            max-height: 20rem;
+            height: 20rem;
             overflow: hidden;
             img {
                 width: 100%;
@@ -49,10 +49,13 @@
             -webkit-transition: all  ease .3s;
 
             padding: 2rem;
+            text-align: left;
             h2 {
-                height: 4rem;
-                padding-bottom: 1rem;
+                height: 3rem;
+                line-height: 3rem;
+                padding-bottom: 3.5rem;
                 margin-bottom: 0;
+                font-size: 2rem;
                 font-weight: 700;
                 border-bottom: 1px solid #eee;
                 overflow: hidden;

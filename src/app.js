@@ -40,7 +40,7 @@ angular.module('myApp', ['ui.router', 'app.modules'])
 				'views': {
 					'mainContent': {
 						'templateUrl': locat + '/html/main/blog/blog.html',
-						// 'controller': 'blogCtrl'
+						'controller': 'blogCtrl'
 					},
 				},
 			})

@@ -2,11 +2,13 @@
 
 angular.module('app.modules', [
 
-    // 3rd part
+    // plugins
+	'sharedPlugins.ui',
 
     // REST api
     'app.restapi',
 
-    // controllers
+    // controller modules
     'header',
+    'blog',
 ])
