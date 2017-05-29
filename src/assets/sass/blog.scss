@@ -1,23 +1,23 @@
-.main-header {
+.main-header-art {
 	height: 50rem !important;
-	min-height: 0;
-	background-image: url(/blog/blog-art.jpg);
+	min-height: 0 !important;
+	background-image: url(/blog/blog-art.jpg) !important;
 }
 .main-intro-box{
 	display: table;
-	padding: 13rem;
+	padding: 12rem;
 	text-align: center;
 	width: 100%;
 	.intro {
 		h1 {
+            padding-top: 8rem;
 			padding-bottom: 5rem;
 		}
 	}
 }
 .my-blog {
     .blog-art-title {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
+        padding: 3rem;
         color: #575a5b;
         text-align: center;
         font-weight: 200;

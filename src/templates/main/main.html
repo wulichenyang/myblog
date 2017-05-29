@@ -1,108 +1,93 @@
-
-<!--nav for mobile phone-->
-<div id="menu-item" class="menu-item hide-menu">
-  <div class="container">
-    <ul>
-      <a href="index.html">
-        <li>home</li>
-      </a>
-      <a href="#about">
-        <li>about</li>
-      </a>
-      <a href="#expertise">
-        <li>expertise</li>
-      </a>
-      <a href="#workstation">
-        <li>workstation</li>
-      </a>
-      <a href="#team">
-        <li>team</li>
-      </a>
-      <a href="#contact">
-        <li>contact</li>
-      </a>
-      <a href="elements.html">
-        <li>Elements</li>
-      </a>
-    </ul>
+<header class="header-nav-wrapper">
+  <!--nav for mobile phone-->
+  <div id="menu-item" class="menu-item hide-menu">
+    <div class="container">
+      <ul>
+        <a href="index.html">
+          <li>home</li>
+        </a>
+        <a href="#about">
+          <li>about</li>
+        </a>
+        <a href="#expertise">
+          <li>expertise</li>
+        </a>
+        <a href="#workstation">
+          <li>workstation</li>
+        </a>
+        <a href="#team">
+          <li>team</li>
+        </a>
+        <a href="#contact">
+          <li>contact</li>
+        </a>
+        <a href="elements.html">
+          <li>Elements</li>
+        </a>
+      </ul>
+    </div>
   </div>
-</div>
-
-<div class="main">
-  <header class="bg-img header main-header fadeIn">
-    <nav class="navbar navbar-default navbar-vira">
-      <div class="container">
-        <div class="navigation-bar">
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="row">
-                <div class="logo col-xs-2">
-                  <a href="index.html"><span class="fa fa-viacoin"></span></a>
-                </div>
-                <!--nav for min 992px-->
-                <div class="main-menu col-xs-10">
-                  <ul class="container-fluid nav">
-                      <li class="active">
-                        <a ui-sref="index.home">home</a>
-                      </li>
-                      <li>
-                        <a ui-sref="main.blog">blog</a>
-                      </li>
-                      <li>
-                        <a href="#/expertise">expertise</a>
-                      </li>
-                      <li>
-                        <a href="#/workstation">workstation</a>
-                      </li>
-                      <li>
-                        <a href="#/team">team</a>
-                      </li>
-                      <li>
-                        <a href="#/contact">contact</a>
-                      </li>
-                      <li>
-                        <a href="elements.html">Elements</a>
-                      </li>
-                </div>
+  <!--nav for normal-->
+  <nav class="navbar navbar-default navbar-vira nav-fixed">
+    <div class="container">
+      <div class="navigation-bar">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="row">
+              <div class="logo col-xs-2">
+                <a href="index.html"><span class="fa fa-viacoin"></span></a>
               </div>
-            </div>
-            <div class="menu-mobile text-right">
-              <div class="menu m">
-                <a href="#"><span class="ion-navicon _ion-android-menu"></span></a>
+              <!--nav for min 992px-->
+              <div class="main-menu col-xs-10">
+                <ul class="container-fluid nav">
+                    <li class="active">
+                      <a ui-sref="index.home">home</a>
+                    </li>
+                    <li>
+                      <a ui-sref="main.blog">blog</a>
+                    </li>
+                    <li>
+                      <a href="#/expertise">expertise</a>
+                    </li>
+                    <li>
+                      <a href="#/workstation">workstation</a>
+                    </li>
+                    <li>
+                      <a href="#/team">team</a>
+                    </li>
+                    <li>
+                      <a href="#/contact">contact</a>
+                    </li>
+                    <li>
+                      <a href="elements.html">Elements</a>
+                    </li>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </nav>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="main-intro-box">
-            <div class="intro">
-              <h1>Blog</h1>
-              <p>Write my heart to you</p>
+          <div class="menu-mobile text-right">
+            <div class="menu m">
+              <a href="#"><span class="ion-navicon _ion-android-menu"></span></a>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </header>
+  </nav>
+</header>
 
-  <main class="content-wrapper fadeIn">
-      <div ui-view="mainContent" class="main-content"></div>
-  </main>
+<main class="content-wrapper fadeIn">
+  <div ui-view="mainContent" class="main-content"></div>
+</main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <p> Handcrafted with <span class="fa fa-heart"></span> More Templates <a href="http://www.cssmoban.com/" target="_blank"
-              title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
-        </div>
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <p> Handcrafted with <span class="fa fa-heart"></span> More Templates <a href="http://www.cssmoban.com/" target="_blank"
+            title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
       </div>
     </div>
-  </footer>
-</div>
+  </div>
+</footer>
 
 <script type="text/javascript" src="assets/js/init.min.js"></script>
