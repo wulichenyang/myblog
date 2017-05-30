@@ -11,4 +11,5 @@ angular.module('app.modules', [
     // controller modules
     'header',
     'blog',
+    'music',
 ])

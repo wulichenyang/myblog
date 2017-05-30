@@ -8,6 +8,7 @@ angular.module('myApp', ['ui.router', 'app.modules'])
 		$stateProvider
 			// go to main page
 			.state('index', {
+				'abstract': true,
 				'views': {
 					'header': {
 						'templateUrl': locat + '/html/header/header.html',
@@ -25,9 +26,9 @@ angular.module('myApp', ['ui.router', 'app.modules'])
 				},
 			})
 
-			// main page for blog, about, ...
+			// main page for blog, music, ...
 			.state('main', {
-              	'url': '/main',
+				'abstract': true,
 				'views': {
 					'header': {
 						'templateUrl': locat + '/html/main/main.html',
@@ -41,6 +42,15 @@ angular.module('myApp', ['ui.router', 'app.modules'])
 					'mainContent': {
 						'templateUrl': locat + '/html/main/blog/blog.html',
 						'controller': 'blogCtrl'
+					},
+				},
+			})
+			.state('main.music', {
+				'url': '/music',
+				'views': {
+					'mainContent': {
+						'templateUrl': locat + '/html/main/music/music.html',
+						'controller': 'musicCtrl'
 					},
 				},
 			})

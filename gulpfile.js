@@ -67,6 +67,9 @@ const pathSrc = {
   fonts : [
     './src/assets/fonts/*'
   ],
+  music : [
+    './src/assets/music/**/*'
+  ],
   // single page & templates
   templates : [
     './src/templates/**/*'
@@ -80,6 +83,7 @@ const pathDes = {
   css : `./${target}/assets/css`,
   img : `./${target}/assets/img`,
   fonts : `./${target}/assets/fonts`,
+  music : `${target}/assets/music`,
   entry: `./${target}`,
   templates : `./${target}/blog-data-web/html`,
 };
@@ -185,6 +189,12 @@ gulp.task('fonts', () => {
     .pipe(gulp.dest(pathDes.fonts))
 });
 
+// for music
+gulp.task('music', () => {
+  return gulp.src(pathSrc.music)
+    .pipe(gulp.dest(pathDes.music))
+});
+
 // clean task
 gulp.task('clean', () => {
   gulp.src('./release', { read: false }).pipe(clean())
@@ -193,7 +203,7 @@ gulp.task('clean', () => {
 
 // gulp build
 gulp.task('default', ['clean'], () => {
-  gulp.start('sass', 'css', 'dependence', 'components', 'templates', 'img', 'fonts');
+  gulp.start('sass', 'css', 'dependence', 'components', 'templates', 'img', 'fonts', 'music');
   gulp.src('').pipe(notify({ message: 'Build Project Completed!' }));
 });
 
