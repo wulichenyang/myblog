@@ -39,6 +39,9 @@ a{
 section{
 	text-align: center;
 }
+ul, ol {
+	list-style: none;
+}
 .blockquote p{
 	font-size: 32px;
 	line-height: 45px;

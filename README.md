@@ -1,12 +1,12 @@
 # My Blog
-Website For Cocacola Built By AngularJS
+Website For myblog Built By AngularJS
 
 ## Installation & Usage
 
 ```
 $ cd /your-project-path
 $ npm install
-$ cp ./cocacola.conf /nginx-configuration-path
+$ cp ./myblog.conf /nginx-configuration-path
 $ sudo nginx -s reload
 ```
 
@@ -70,8 +70,8 @@ After complie source code and reset nginx configuration server is available at [
 ├── Dockerfile
 ├── LICENSE
 ├── README.md
-├── cocacola.dev.conf
-├── cocacola.product.conf
+├── myblog.dev.conf
+├── myblog.product.conf
 ├── favicon.ico
 ├── gulpfile.js
 ├── npm-debug.log
