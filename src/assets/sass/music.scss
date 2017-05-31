@@ -102,6 +102,17 @@
 								-moz-transition: transform .75s; /* Firefox 4 */
 								-webkit-transition: transform .75s; /* Safari and Chrome */
 							}
+							
+							.bg-position2 {
+								background-position-x: 33.33%
+							}
+							.bg-position3 {
+								background-position-x: 66.66%;
+							}
+							.bg-position4 {
+								background-position-x: 100%;
+							}
+							
 							.music-item-mask {
 								position: absolute;
 								top: 0;

@@ -43,50 +43,8 @@
 					<div class="row">
 						<div class="music-list-wrapper col-xs-12">
 							<ul class="music-list row">
-								<li class="music-list-item col-sm-6 col-md-3">
-									<div class="music-content">
-										<div class="music-item-bg"></div>
-										<i class="music-item-mask"></i>
-										<i class="music-play-icon"></i>
-										<i class="music-line"></i>
-										<div class="music-item-header">
-											<a href="">
-												<h4>巅峰榜</h4>
-												<h3>流行指数</h3>
-											</a>
-										</div>
-										<ul class="song-list">
-											<li class="song-item">
-												<span class="song-number">1</span>
-												<a ng-click="" class="song-info">
-													<h4>最长的电影</h4>
-													<h5>李晨阳</h5>
-												</a>
-											</li>
-											<li class="song-item">
-												<span class="song-number">2</span>
-												<a ng-click="" class="song-info">
-													<h4>最长的电影</h4>
-													<h5>李晨阳</h5>
-												</a>
-											</li>
-											<li class="song-item">
-												<span class="song-number">3</span>
-												<a ng-click="" class="song-info">
-													<h4>最长的电影</h4>
-													<h5>李晨阳</h5>
-												</a>
-											</li>
-											<li class="song-item">
-												<span class="song-number">4</span>
-												<a ng-click="" class="song-info">
-													<h4>最长的电影</h4>
-													<h5>李晨阳</h5>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</li>
+
+								<music-list-item ng-repeat="data in musicList track by $index" data="data" index="$index + 1"></music-list-item>
 
 							</ul>
 						</div>
