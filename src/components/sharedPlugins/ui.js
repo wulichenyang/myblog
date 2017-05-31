@@ -41,15 +41,15 @@ angular.module('sharedPlugins.ui', [])
     restrict: 'E',
     replace: true,
     scope: {
-      data: '=',
+      songListItem: '=',
 			index: '=',
     },
     template: `
 			<li class="song-item">
 				<span class="song-number">{{index}}</span>
 				<a ng-click="" class="song-info">
-					<h4>{{data.songName}}</h4>
-					<h5>{{data.singerName}}</h5>
+					<h4>{{songListItem.songName}}</h4>
+					<h5>{{songListItem.singerName}}</h5>
 				</a>
 			</li>
     `,
@@ -61,7 +61,7 @@ angular.module('sharedPlugins.ui', [])
     restrict: 'E',
     replace: true,
     scope: {
-      data: '=',
+      musicListItem: '=',
 			index: '=',
     },
     template: `
@@ -79,7 +79,7 @@ angular.module('sharedPlugins.ui', [])
 					</div>
 					<ul class="song-list">
 
-						<song-list-item ng-repeat="data in data track by $index" data="data" index="$index + 1"></song-list-item>
+						<song-list-item ng-repeat="songListItem in musicListItem track by $index" song-list-item="songListItem" index="$index + 1"></song-list-item>
 						
 					</ul>
 				</div>
