@@ -44,7 +44,7 @@
 						<div class="music-list-wrapper col-xs-12">
 							<ul class="music-list row">
 
-								<music-list-item ng-repeat="musicListItem in musicList track by $index" music-list-item="musicListItem" index="$index + 1"></music-list-item>
+								<music-list-item ng-repeat="musicListItem in musicList track by $index" music-list-item="musicListItem" index="$index + 1" audio-info="$parent.musicAudio"></music-list-item>
 
 							</ul>
 						</div>
@@ -52,7 +52,7 @@
 
 					<div class="row">
 						<div class="music-audio">
-							<audio src="songSrcNow" autoplay="ifPlay"></audio>
+							<audio src="musicAudio.songSrcNow" autoplay="musicAudio.ifPlay"></audio>
 						</div>
 					</div>
 

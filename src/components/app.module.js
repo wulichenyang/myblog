@@ -10,6 +10,7 @@ angular.module('app.modules', [
 
     // controller modules
     'header',
+    'main',
     'blog',
     'music',
 ])

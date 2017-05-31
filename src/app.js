@@ -32,7 +32,7 @@ angular.module('myApp', ['ui.router', 'app.modules'])
 				'views': {
 					'header': {
 						'templateUrl': locat + '/html/main/main.html',
-						// 'controller': 'mainCtrl'
+						'controller': 'mainCtrl'
 					},
 				},
 			})

@@ -1,5 +1,5 @@
-angular.module('music', [])
-  .controller('musicCtrl', ['$scope', ($scope) => {
+angular.module('main', [])
+  .controller('mainCtrl', ['$scope', ($scope) => {
     
     $scope.musicList = [
       [
@@ -75,5 +75,9 @@ angular.module('music', [])
         },
       ],
     ]
+    $scope.musicAudio = {
+      songSrcNow: '',
+      ifPlay:''
+    }
 
   }])

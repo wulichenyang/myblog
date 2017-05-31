@@ -63,6 +63,7 @@ angular.module('sharedPlugins.ui', [])
     scope: {
       musicListItem: '=',
 			index: '=',
+			audioInfo: '=',
     },
     template: `
 			<li class="music-list-item col-sm-6 col-md-3">
