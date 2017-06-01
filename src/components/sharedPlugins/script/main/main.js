@@ -1,6 +1,13 @@
 angular.module('main', [])
   .controller('mainCtrl', ['$scope', ($scope) => {
     
+    $scope.audio = document.getElementById('music-audio');
+
+    $scope.musicAudio = {
+      songSrcNow: '/最长的电影.mp3',
+      ifPlay:'false'
+    }
+    
     $scope.musicList = [
       [
         {
@@ -75,9 +82,5 @@ angular.module('main', [])
         },
       ],
     ]
-    $scope.musicAudio = {
-      songSrcNow: '',
-      ifPlay:''
-    }
 
   }])

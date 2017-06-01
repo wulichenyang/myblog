@@ -80,7 +80,7 @@ angular.module('sharedPlugins.ui', [])
 					</div>
 					<ul class="song-list">
 
-						<song-list-item ng-repeat="songListItem in musicListItem track by $index" song-list-item="songListItem" index="$index + 1"></song-list-item>
+						<song-list-item ng-click="myClick()" ng-repeat="songListItem in musicListItem track by $index" song-list-item="songListItem" index="$index + 1"></song-list-item>
 						
 					</ul>
 				</div>
@@ -95,6 +95,15 @@ angular.module('sharedPlugins.ui', [])
 				} else if (4 === index){
 					return 'bg-position4'
 				} 
+			}
+
+			scope.myClick = () =>{
+				if('false' === scope.audioInfo.ifPlay){
+					scope.audioInfo.ifPlay = 'true';
+					
+				} else {
+					scope.audioInfo.ifPlay = 'false';
+				}
 			}
 		}
   }
