@@ -70,7 +70,7 @@ angular.module('sharedPlugins.ui', [])
 				<div class="music-content">
 					<div class="music-item-bg" ng-class="bgPosition(index)"></div>
 					<i class="music-item-mask"></i>
-					<i class="music-play-icon"></i>
+					<i class="music-play-icon" ng-click="playCurrentFirst(musicListItem)"></i>
 					<i class="music-line"></i>
 					<div class="music-item-header">
 						<a href="">
@@ -80,13 +80,17 @@ angular.module('sharedPlugins.ui', [])
 					</div>
 					<ul class="song-list">
 
-						<song-list-item ng-click="myClick()" ng-repeat="songListItem in musicListItem track by $index" song-list-item="songListItem" index="$index + 1"></song-list-item>
+						<song-list-item ng-click="playSong(songListItem)" ng-repeat="songListItem in musicListItem track by $index" song-list-item="songListItem" index="$index + 1"></song-list-item>
 						
 					</ul>
 				</div>
 			</li>
     `,
 		link: (scope, elem, attr) => {
+
+			// audio dom
+			const audio = document.getElementById('music-audio');
+
 			scope.bgPosition = index => {
 				if(2 === index) {
 					return 'bg-position2'
@@ -97,13 +101,35 @@ angular.module('sharedPlugins.ui', [])
 				} 
 			}
 
-			scope.myClick = () =>{
-				if('false' === scope.audioInfo.ifPlay){
+			scope.playSong = songItem =>{
+				if(audio.getAttribute('src') !== songItem.songSrc) {
+					audio.setAttribute('src', songItem.songSrc);
+					audio.play();
 					scope.audioInfo.ifPlay = 'true';
-					
 				} else {
-					scope.audioInfo.ifPlay = 'false';
+						if('false' === scope.audioInfo.ifPlay){
+							scope.audioInfo.ifPlay = 'true';
+							audio.pause();
+						} else {
+							scope.audioInfo.ifPlay = 'false';
+							audio.play();
+						}
 				}
+			}
+			scope.playCurrentFirst = musicListItem => {
+				if(audio.getAttribute('src') !== musicListItem[0].songSrc) {
+					audio.setAttribute('src', musicListItem[0].songSrc);
+					audio.play();
+					scope.musicAudio.ifPlay = 'true';
+				} else {
+							if('false' === scope.audioInfo.ifPlay){
+								scope.audioInfo.ifPlay = 'true';
+								audio.pause();
+							} else {
+								scope.audioInfo.ifPlay = 'false';
+								audio.play();
+							}
+					}
 			}
 		}
   }
