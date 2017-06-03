@@ -73,7 +73,7 @@ angular.module('sharedPlugins.ui', [])
 					<i class="music-play-icon" ng-click="playCurrentFirst(musicListItem)"></i>
 					<i class="music-line"></i>
 					<div class="music-item-header">
-						<a href="">
+						<a ng-click="playCurrentFirst(musicListItem)">
 							<h4>巅峰榜</h4>
 							<h3>流行指数</h3>
 						</a>
@@ -100,7 +100,7 @@ angular.module('sharedPlugins.ui', [])
 					return 'bg-position4'
 				} 
 			}
-
+			// play song
 			scope.playSong = songItem =>{
 				if(audio.getAttribute('src') !== songItem.songSrc) {
 					audio.setAttribute('src', songItem.songSrc);
@@ -116,11 +116,12 @@ angular.module('sharedPlugins.ui', [])
 						}
 				}
 			}
+			// play the first song of one block
 			scope.playCurrentFirst = musicListItem => {
 				if(audio.getAttribute('src') !== musicListItem[0].songSrc) {
 					audio.setAttribute('src', musicListItem[0].songSrc);
 					audio.play();
-					scope.musicAudio.ifPlay = 'true';
+					scope.audioInfo.ifPlay = 'true';
 				} else {
 							if('false' === scope.audioInfo.ifPlay){
 								scope.audioInfo.ifPlay = 'true';
