@@ -10,7 +10,7 @@ angular.module('sharedPlugins.ui', [])
 			<div class="col-xs-12 col-sm-6 col-md-4">
 				<div class="art-intro-wrapper">
 					<div class="row">
-						<a href="https://courses.nodecasts.io/courses/introduction-to-node-js">
+						<a>
 							<div class="col-xs-12">
 								<div class="art-img-wrapper">
 									<img src="{{data.artImg}}" alt="art">
@@ -20,7 +20,7 @@ angular.module('sharedPlugins.ui', [])
 									<p>{{data.artIntro}}</p>
 									<div class="row artist-wrapper">
 										<div class="col-xs-12">
-											<div class="pull-left">
+											<div>
 												<img src="{{data.artistImg}}" alt="artist">
 												<span>{{data.artistName}}</span>
 											</div>
