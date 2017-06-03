@@ -183,7 +183,7 @@
 								left: 50%;
 								margin-left: -9rem;
 								padding-left: 0;
-								width: 18rem;
+								width: 20rem;
 								white-space: nowrap;
 								.song-item {
 									position: relative;
@@ -208,6 +208,8 @@
 										h4, h5 {
 											color: #fff;
 											font-weight: 400;
+											overflow: hidden;
+											white-space: nowrap;
 											text-overflow: ellipsis;
 										}
 										h4 {

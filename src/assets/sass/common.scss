@@ -345,6 +345,17 @@ ul, ol {
 		ul {
 			margin: 0;
 		}
+		@media screen and (max-width: 1200px) {
+			ul {
+				font-size: 1.8rem;
+			}
+		}
+		@media screen and (max-width: 992px) {
+			ul {
+				line-height: 3rem;
+				font-size: 1.2rem;
+			}
+		}
 		ul>li {
 			float: left;
 			a {
