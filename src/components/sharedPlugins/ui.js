@@ -17,7 +17,7 @@ angular.module('sharedPlugins.ui', [])
 								</div>
 								<div class="art-content-wrapper">
 									<h2>{{data.artTitle}}</h2>
-									<p>{{data.artIntro}}</p>
+									<p style="-webkit-box-orient:vertical">{{data.artIntro}}</p>
 									<div class="row artist-wrapper">
 										<div class="col-xs-12">
 											<div>
