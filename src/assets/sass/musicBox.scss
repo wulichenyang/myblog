@@ -1,0 +1,42 @@
+.music-box-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    outline: 0;
+    color: #333;
+    font-size: 1.4rem;
+    -webkit-overflow-scrolling: touch;
+    background-color: rgb(148, 120, 94);
+    z-index: 9999;
+    .music-box {
+        position: relative;
+        margin: 0 7.638889%;
+        height: 100%;
+        color: rgba(225,225,225,.8);
+        z-index: 3;
+    }
+    .music-box-mask {
+        background-color: rgba(0,0,0,.35);
+        z-index: 2;
+    }
+    .music-box-bg {
+        background-image: url(https://y.gtimg.cn/music/photo_new/T002R300x300M000004avLEH3iQD8X.jpg?max_age=2592000);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50%;
+        -webkit-filter: blur(65px);
+        filter: blur(65px);
+        opacity: .6;
+    }
+    .music-box-mask, .music-box-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+}

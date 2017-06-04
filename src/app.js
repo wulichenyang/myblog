@@ -54,4 +54,13 @@ angular.module('myApp', ['ui.router', 'app.modules'])
 					},
 				},
 			})
+			.state('main.music.musicBox', {
+				'url': '/musicBox',
+				'views': {
+					'musicBoxContent': {
+						'templateUrl': locat + '/html/main/music/musicBox.html',
+						'controller': 'musicBoxCtrl'
+					},
+				},
+			})
 	}])
