@@ -1,7 +1,56 @@
-<div class="music-box-wrapper">
-    <div class="music-box">
-        heh
-    </div>
-    <div class="music-box-mask"></div>
-    <div class="music-box-bg"></div>
+<div class="music-box-wrapper" style="background-color: rgb(128, 96, 128);">
+	<div class="music-box">
+		<section class="music-box-content">
+			<div class="music-box-normal">
+				<section class="music-box-toolbar">
+					<a class="tool-btn" href="javascript:;">
+						<i class="fa fa-heart-o"></i>
+						收藏
+					</a>
+					<a class="tool-btn" href="javascript:;">
+						<i class="fa fa-music"></i>
+						下载
+					</a>
+					<a class="tool-btn" href="javascript:;">
+						<i class="fa fa-trash-o"></i>
+						删除
+					</a>
+					<a class="tool-btn" href="javascript:;">
+						<i class="fa fa-minus-square-o"></i>
+						清空列表
+					</a>
+				</section>
+				
+				<section class="main-menu-wrapper">
+					<div class="main-menu">
+						<table class="menu-table">
+							<thead>
+								<tr>
+									<th>歌曲</th>
+									<th>歌手</th>
+									<th>时长</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr data-ng-repeat="i in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">
+									<td><span>{{i}}</span>心之眼的蛤</td>
+									<td>G.E.M.邓紫棋</td>
+									<td>02:28</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</section>
+
+				<section class="song-info">
+					
+				</section>
+			</div>
+		</section>
+		<section class="music-box-control">
+
+		</section>
+	</div>
+	<div class="music-box-mask"></div>
+	<div class="music-box-bg"></div>
 </div>

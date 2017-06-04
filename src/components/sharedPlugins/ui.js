@@ -71,17 +71,17 @@ angular.module('sharedPlugins.ui', [])
 				<div class="music-content">
 					<div class="music-item-bg" ng-class="bgPosition(index)"></div>
 					<i class="music-item-mask"></i>
-					<i ui-sref="main.music.musicBox" class="music-play-icon" ng-click="playCurrentFirst(musicListItem)"></i>
+					<i ui-sref="main.music.musicBox" class="music-play-icon" ng-click="playCurrentFirst(musicListItem); hideScrollBar()"></i>
 					<i class="music-line"></i>
 					<div class="music-item-header">
-						<a ui-sref="main.music.musicBox" ng-click="playCurrentFirst(musicListItem)">
+						<a ui-sref="main.music.musicBox" ng-click="playCurrentFirst(musicListItem); hideScrollBar()">
 							<h4>巅峰榜</h4>
 							<h3>流行指数</h3>
 						</a>
 					</div>
 					<ul class="song-list">
 
-						<song-list-item ui-sref="main.music.musicBox" ng-click="playSong(songListItem)" ng-repeat="songListItem in musicListItem track by $index" song-list-item="songListItem" index="$index + 1"></song-list-item>
+						<song-list-item ui-sref="main.music.musicBox" ng-click="playSong(songListItem); hideScrollBar()" ng-repeat="songListItem in musicListItem track by $index" song-list-item="songListItem" index="$index + 1"></song-list-item>
 						
 					</ul>
 				</div>
@@ -102,7 +102,7 @@ angular.module('sharedPlugins.ui', [])
 				}
 
 				// play song
-				scope.playSong = songItem => {
+				scope.playSong = songItem => {	
 					if (audio.getAttribute('src') !== songItem.songSrc) {
 						audio.setAttribute('src', songItem.songSrc);
 						audio.play();
@@ -133,6 +133,11 @@ angular.module('sharedPlugins.ui', [])
 							audio.play();
 						}
 					}
+				}
+
+				scope.hideScrollBar = () => {
+					// hide scroll bar
+					document.body.style.overflowY = 'hidden';
 				}
 
 			}
