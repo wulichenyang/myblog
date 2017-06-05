@@ -26,7 +26,7 @@
             width: 100%;
             min-height: 33rem;
             .music-box-normal {
-                margin-right: 40rem;
+                margin-right: 30%;
                 .music-box-toolbar {
                     position: relative;
                     margin-left: 1px;
@@ -78,6 +78,22 @@
                             tr {
                                 font-family: -webkit-body,Tahoma;
                                 border-bottom: 1px solid rgba(255, 255, 255, .02);
+                                &.current-song {
+                                    color: #fff;
+                                    span.inner-index {
+                                        text-indent: 999rem;
+                                        background-image: url('/music/wave.gif');
+                                        background-repeat: no-repeat;
+                                        background-position: 1rem .5rem;
+                                    }
+                                }
+                                &:hover .inner-tool-wrapper,
+                                &:hover .inner-delete {
+                                    display: block !important;
+                                }
+                                &:hover .inner-time {
+                                    display: none;
+                                }
                                 td, th {
                                     position: relative;
                                     padding: 1.5rem 0;
@@ -87,19 +103,76 @@
                                     overflow: hidden;
                                     text-overflow: ellipsis;
                                     &:first-child {
+                                        padding-right: 15rem;
                                         width: 50rem;
-                                        max-width: 50rem
+                                        max-width: 50rem;
+                                        .inner-tool-wrapper {
+                                            display: none;
+                                            position: absolute;
+                                            top: .7rem;
+                                            right: 0;
+                                            .inner-tool-btn {
+                                                display: inline-block;
+                                                margin-right: .5rem;
+                                                width: 3.6rem;
+                                                height: 3.6rem;
+                                                background-image: url('/music/music-icon-list.png');
+                                                &.inner-play {
+                                                    background-position: -80px 0;
+                                                    &:hover {
+                                                        background-position: -120px 0;
+                                                    }
+                                                }
+                                                &.inner-pause {
+                                                    background-position: -80px -200px;
+                                                    &:hover {
+                                                        background-position: -120px -200px;
+                                                    }
+                                                }
+                                                &.inner-add {
+                                                    background-position: -80px -80px;
+                                                    &:hover {
+                                                        background-position: -120px -80px;
+                                                    }
+                                                }
+                                                &.inner-download {
+                                                    background-position: -80px -40px;
+                                                    &:hover {
+                                                        background-position: -120px -40px;
+                                                    }
+                                                }
+                                            }
+                                        }
                                     }
-                                    &:nth-child(2) {
+                                    &:nth-child(2), &:nth-child(3) {
                                         width: 20rem;
                                         max-width: 20rem;
                                     }
-                                    span {
+                                    &:nth-child(3) {
+                                        padding-right: 10rem;
+                                    }
+                                    .inner-index {
                                         position: absolute;
                                         left: 0;
                                         width: 2rem;
                                         max-width: 10rem;
                                         text-align: right;
+                                    }
+                                    span.inner-time {
+                                        display: inline-block;
+                                    }
+                                    i.inner-delete {
+                                        display: none;
+                                        position: absolute;
+                                        top: .7rem;
+                                        left: 3.4rem;
+                                        width: 3.6rem;
+                                        height: 3.6rem;
+                                        background-image: url('/music/music-icon-list.png');
+                                        background-position: -80px -160px;
+                                        &:hover {
+                                            background-position: -120px -160px;
+                                        }
                                     }
                                 }
                             }
