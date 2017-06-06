@@ -56,7 +56,27 @@
 			</div>
 		</section>
 		<section class="music-box-control">
-
+			<a href="javascript:;" class="btn-control btn-prev">
+				<span class="control-item">上一首</span>
+			</a>
+			<a href="javascript:;" class="btn-control btn-pause">
+				<span class="control-item">播放/暂停</span>
+			</a>
+			<a href="javascript:;" class="btn-control btn-next">
+				<span class="control-item">下一首</span>
+			</a>
+			<div class="music-process-wrapper">
+				<div class="music-info">
+					<span>烟花易冷 - 李晨阳</span>
+				</div>
+				<div class="music-time">
+					<span>{{currentTime}} / {{totalTime}}</span>
+				</div>
+				<div class="music-process" id="process">
+					<div class="process-bg"></div>
+					<div class="process-play" ng-style="processBarStyle"></div>
+				</div>
+			</div>
 		</section>
 	</div>
 	<div class="music-box-mask"></div>

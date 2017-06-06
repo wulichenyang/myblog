@@ -3,9 +3,9 @@ angular.module('music', [])
 
     $scope.musicAudio = {
       songSrcNow: '/枫.mp3',
-      ifPlay: 'false'
+      isPlay: 'false'
     }
-
+    
     $scope.musicQueue = [
       // {
       //   songSrc: '/枫.mp3',

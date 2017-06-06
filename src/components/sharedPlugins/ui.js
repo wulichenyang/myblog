@@ -106,13 +106,13 @@ angular.module('sharedPlugins.ui', [])
 					if (audio.getAttribute('src') !== songItem.songSrc) {
 						audio.setAttribute('src', songItem.songSrc);
 						audio.play();
-						scope.audioInfo.ifPlay = 'true';
+						scope.audioInfo.isPlay = 'true';
 					} else {
-						if ('false' === scope.audioInfo.ifPlay) {
-							scope.audioInfo.ifPlay = 'true';
+						if ('false' === scope.audioInfo.isPlay) {
+							scope.audioInfo.isPlay = 'true';
 							audio.pause();
 						} else {
-							scope.audioInfo.ifPlay = 'false';
+							scope.audioInfo.isPlay = 'false';
 							audio.play();
 						}
 					}
@@ -123,13 +123,13 @@ angular.module('sharedPlugins.ui', [])
 					if (audio.getAttribute('src') !== musicListItem[0].songSrc) {
 						audio.setAttribute('src', musicListItem[0].songSrc);
 						audio.play();
-						scope.audioInfo.ifPlay = 'true';
+						scope.audioInfo.isPlay = 'true';
 					} else {
-						if ('false' === scope.audioInfo.ifPlay) {
-							scope.audioInfo.ifPlay = 'true';
+						if ('false' === scope.audioInfo.isPlay) {
+							scope.audioInfo.isPlay = 'true';
 							audio.pause();
 						} else {
-							scope.audioInfo.ifPlay = 'false';
+							scope.audioInfo.isPlay = 'false';
 							audio.play();
 						}
 					}
