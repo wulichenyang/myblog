@@ -8,6 +8,9 @@ angular.module('app.modules', [
     // REST api
     'app.restapi',
 
+    // utils
+    'utils',
+
     // controller modules
     'header',
     'main',

@@ -9,17 +9,25 @@ angular.module('musicBox', [])
       s = s.toString().length == 1 ? ('0' + s) : s;
       return m + ':' + s;
     }
+
     const getSongName = () => {
       const name = $scope.musicQueue.find(x => {
         return true === x.isPlay;
       })
-      return name.songName;
+      if(undefined === name) {
+        return '歌曲';
+      } else {
+        return name.songName;
+      }
     }
     
     const getSingerName = () => {
       const singer = $scope.musicQueue.find(x => {
         return true === x.isPlay;
       })
+      if(undefined === singer) {
+        return '歌手'
+      }
       return singer.singerName;
     }
 
@@ -34,6 +42,7 @@ angular.module('musicBox', [])
     // 获得歌曲长度
     setInterval(() => {
       console.log(audio.duration)
+      console.log($scope.musicAudio.isPlay)
       if(!isNaN(audio.duration)) {
         $scope.totalTime = transformTime(audio.duration);
       }
@@ -43,6 +52,9 @@ angular.module('musicBox', [])
     setInterval(() => {
       currentTime = audio.currentTime;
       $scope.$apply(() => {
+        if(audio.ended) {
+          $scope.musicAudio.isPlay = false;
+        }
         $scope.currentTime = transformTime(currentTime);
         $scope.processBarStyle = {
           'width': (currentTime / audio.duration).toFixed(3)*100 + '%'

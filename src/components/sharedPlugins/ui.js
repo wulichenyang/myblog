@@ -135,28 +135,36 @@ angular.module('sharedPlugins.ui', [])
 						}
 					}
 				}
+ 
+				const updateStorage = () => {
+					localStorage.music = JSON.stringify(scope.musicQueue)
+				}
 
 				scope.addToBox = (songItem) => {
-					// 关闭之前的歌曲
+
+          // 找到并关闭播放的歌曲
 					const idx = scope.musicQueue.findIndex(x => {
 						return x.isPlay === true;
 					})
-					if(idx !== -1) {
-						scope.musicQueue[idx]. isPlay = false
+
+					if(idx !== -1 && songItem.songName !== scope.musicQueue[idx].songName || null) {
+						scope.musicQueue[idx].isPlay = false
 					}
 
 					// 没找到, 添加进 music box
 					const song = scope.musicQueue.find(x => {
 						return x.songName === songItem.songName;
 					})
+
 					if(undefined === song) {
-						scope.musicQueue.push({
+						scope.musicQueue.unshift({
 							songSrc: songItem.songSrc,
 							songName: songItem.songName,
 							singerName: songItem.singerName,
 							// duration: songItem.duration,
 							isPlay: true,
 						})
+						updateStorage();
 					}
 				}
 
@@ -176,9 +184,11 @@ angular.module('sharedPlugins.ui', [])
 			scope: {
 				song: '=',
 				index: '=',
+				audioInfo: '=',
+				musicQueue: '='
 			},
 			template: `
-				<tr class="current-song">
+				<tr class="current-song" ng-dblclick="playThisSong(song)">
 					<td>
 						<span class="inner-index">{{index}}</span>
 						{{song.songName}}
@@ -196,54 +206,73 @@ angular.module('sharedPlugins.ui', [])
 
 				const audio = document.getElementById('music-audio');
 
-				scope.bgPosition = index => {
-					if (2 === index) {
-						return 'bg-position2'
-					} else if (3 === index) {
-						return 'bg-position3'
-					} else if (4 === index) {
-						return 'bg-position4'
-					}
+				const updateStorage = () => {
+					localStorage.music = JSON.stringify(scope.musicQueue)
 				}
 
-				// play song
-				scope.playSong = songItem => {
-					if (audio.getAttribute('src') !== songItem.songSrc) {
-						audio.setAttribute('src', songItem.songSrc);
-						audio.play();
-						scope.audioInfo.isPlay = true;
-					} else {
-						if (false === scope.audioInfo.isPlay) {
-							scope.audioInfo.isPlay = true;
-							audio.pause();
-						} else {
-							scope.audioInfo.isPlay = false;
-							audio.play();
+				// 播放歌曲
+				scope.playThisSong = songItem => {
+					audio.setAttribute('src', songItem.songSrc);
+					audio.play();
+					scope.audioInfo.isPlay = true;
+					
+          // 找到之前正在播放的歌曲
+					const idx = scope.musicQueue.findIndex(x => {
+						return x.isPlay === true;
+					})
+
+					// 即将播放的歌曲
+					const nextIdx = scope.musicQueue.findIndex(x => {
+						return x.songName === songItem.songName;
+					})
+					// 不同则改变播放标识
+					if(idx !== nextIdx) {
+						if(-1 !== idx) {
+							scope.musicQueue[idx].isPlay = false;
 						}
+						scope.musicQueue[nextIdx].isPlay = true
+					}
+					// 同步localStorage
+					updateStorage();
+				}
+
+				// 暂停所有
+				const pauseAll = () => {
+					const idx = scope.musicQueue.findIndex(x => true === x.isPlay);
+					if(-1 !== idx) {
+						scope.musicQueue[idx].isPlay = false;
 					}
 				}
 
-				// play the first song of one block
-				scope.playCurrentFirst = musicListItem => {
-					if (audio.getAttribute('src') !== musicListItem[0].songSrc) {
-						audio.setAttribute('src', musicListItem[0].songSrc);
-						audio.play();
-						scope.audioInfo.isPlay = true;
-					} else {
-						if (false === scope.audioInfo.isPlay) {
-							scope.audioInfo.isPlay = true;
-							audio.pause();
-						} else {
-							scope.audioInfo.isPlay = false;
-							audio.play();
-						}
+				// 监听播放器停止
+				scope.$watch('audioInfo.isPlay', () => {
+					if(false === scope.audioInfo.isPlay) {
+						pauseAll();
+						updateStorage();
 					}
-				}
+				})
 
-				scope.hideScrollBar = () => {
-					// hide scroll bar
-					document.body.style.overflowY = 'hidden';
-				}
+				// // play the first song of one block
+				// scope.playCurrentFirst = musicListItem => {
+				// 	if (audio.getAttribute('src') !== musicListItem[0].songSrc) {
+				// 		audio.setAttribute('src', musicListItem[0].songSrc);
+				// 		audio.play();
+				// 		scope.audioInfo.isPlay = true;
+				// 	} else {
+				// 		if (false === scope.audioInfo.isPlay) {
+				// 			scope.audioInfo.isPlay = true;
+				// 			audio.pause();
+				// 		} else {
+				// 			scope.audioInfo.isPlay = false;
+				// 			audio.play();
+				// 		}
+				// 	}
+				// }
+
+				// scope.hideScrollBar = () => {
+				// 	// hide scroll bar
+				// 	document.body.style.overflowY = 'hidden';
+				// }
 
 			}
 		}
