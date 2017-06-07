@@ -1,6 +1,8 @@
 angular.module('music', [])
   .controller('musicCtrl', ['$scope', 'musicInitList', ($scope, musicInitList) => {
 
+    $scope.audio = document.querySelector('audio');
+    
     $scope.musicAudio = {
       songSrcNow: '',
       isPlay: false

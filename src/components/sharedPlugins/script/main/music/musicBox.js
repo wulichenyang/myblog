@@ -31,7 +31,6 @@ angular.module('musicBox', [])
       return singer.singerName;
     }
 
-    const audio = document.querySelector('audio');
     let currentTime = 0;
 
     $scope.currentTime = '00:00';
@@ -39,25 +38,32 @@ angular.module('musicBox', [])
     $scope.songName = getSongName();
     $scope.singerName = getSingerName();
 
+    // 更新歌名和歌手
+    $scope.$watch('audio.currentSrc', () => {
+      console.log('name has changed')
+      $scope.songName = getSongName();
+      $scope.singerName = getSingerName();
+    })
+
     // 获得歌曲长度
-    setInterval(() => {
-      console.log(audio.duration)
+    $scope.$watch('audio.currentSrc', () => {
+      console.log($scope.audio.duration)
       console.log($scope.musicAudio.isPlay)
-      if(!isNaN(audio.duration)) {
-        $scope.totalTime = transformTime(audio.duration);
+      if(!isNaN($scope.audio.duration)) {
+        $scope.totalTime = transformTime($scope.audio.duration);
       }
-    }, 1000)
+    })
 
     // 更新时间/刷新进程条
     setInterval(() => {
-      currentTime = audio.currentTime;
+      currentTime = $scope.audio.currentTime;
       $scope.$apply(() => {
-        if(audio.ended) {
+        if($scope.audio.ended) {
           $scope.musicAudio.isPlay = false;
         }
         $scope.currentTime = transformTime(currentTime);
         $scope.processBarStyle = {
-          'width': (currentTime / audio.duration).toFixed(3)*100 + '%'
+          'width': (currentTime / $scope.audio.duration).toFixed(3)*100 + '%'
         }
       })
     }, 1000)
