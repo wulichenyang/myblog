@@ -3,17 +3,15 @@ angular.module('music', [])
 
     $scope.musicAudio = {
       songSrcNow: '/枫.mp3',
-      isPlay: 'false'
+      isPlay: false
     }
     
+    // append in music box
     $scope.musicQueue = [
-      // {
-      //   songSrc: '/枫.mp3',
-      //   songName: '枫',
-      //   singerName: '李晨阳'
-      // },
-    ]
+      
+    ];
 
+    // all music
     $scope.musicList = [
       [
         {

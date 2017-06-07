@@ -9,13 +9,28 @@ angular.module('musicBox', [])
       s = s.toString().length == 1 ? ('0' + s) : s;
       return m + ':' + s;
     }
+    const getSongName = () => {
+      const name = $scope.musicQueue.find(x => {
+        return true === x.isPlay;
+      })
+      return name.songName;
+    }
+    
+    const getSingerName = () => {
+      const singer = $scope.musicQueue.find(x => {
+        return true === x.isPlay;
+      })
+      return singer.singerName;
+    }
 
     const audio = document.querySelector('audio');
     let currentTime = 0;
 
     $scope.currentTime = '00:00';
     $scope.totalTime = '00:00';
-    
+    $scope.songName = getSongName();
+    $scope.singerName = getSingerName();
+
     // 获得歌曲长度
     setInterval(() => {
       console.log(audio.duration)

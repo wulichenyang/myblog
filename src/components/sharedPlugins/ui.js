@@ -1,13 +1,13 @@
 angular.module('sharedPlugins.ui', [])
 
 	.directive('artIntroItem', [() => {
-	return {
-		restrict: 'E',
-		replace: true,
-		scope: {
-			data: '=',
-		},
-		template: `
+		return {
+			restrict: 'E',
+			replace: true,
+			scope: {
+				data: '=',
+			},
+			template: `
 			<div class="col-xs-12 col-sm-6 col-md-4">
 				<div class="art-intro-wrapper">
 					<div class="row">
@@ -34,8 +34,8 @@ angular.module('sharedPlugins.ui', [])
 				</div>
 			</div>
     `,
-	}
-}])
+		}
+	}])
 
 	.directive('songListItem', [() => {
 		return {
@@ -65,6 +65,7 @@ angular.module('sharedPlugins.ui', [])
 				musicListItem: '=',
 				index: '=',
 				audioInfo: '=',
+				musicQueue: '=',
 			},
 			template: `
 			<li class="music-list-item col-sm-6 col-md-3">
@@ -81,7 +82,7 @@ angular.module('sharedPlugins.ui', [])
 					</div>
 					<ul class="song-list">
 
-						<song-list-item ui-sref="main.music.musicBox" ng-click="playSong(songListItem); hideScrollBar()" ng-repeat="songListItem in musicListItem track by $index" song-list-item="songListItem" index="$index + 1"></song-list-item>
+						<song-list-item ui-sref="main.music.musicBox" ng-click="playSong(songListItem); addToBox(songListItem); hideScrollBar()" ng-repeat="songListItem in musicListItem track by $index" song-list-item="songListItem" index="$index + 1"></song-list-item>
 						
 					</ul>
 				</div>
@@ -102,17 +103,17 @@ angular.module('sharedPlugins.ui', [])
 				}
 
 				// play song
-				scope.playSong = songItem => {	
+				scope.playSong = songItem => {
 					if (audio.getAttribute('src') !== songItem.songSrc) {
 						audio.setAttribute('src', songItem.songSrc);
 						audio.play();
-						scope.audioInfo.isPlay = 'true';
+						scope.audioInfo.isPlay = true;
 					} else {
-						if ('false' === scope.audioInfo.isPlay) {
-							scope.audioInfo.isPlay = 'true';
+						if (false === scope.audioInfo.isPlay) {
+							scope.audioInfo.isPlay = true;
 							audio.pause();
 						} else {
-							scope.audioInfo.isPlay = 'false';
+							scope.audioInfo.isPlay = false;
 							audio.play();
 						}
 					}
@@ -123,13 +124,117 @@ angular.module('sharedPlugins.ui', [])
 					if (audio.getAttribute('src') !== musicListItem[0].songSrc) {
 						audio.setAttribute('src', musicListItem[0].songSrc);
 						audio.play();
-						scope.audioInfo.isPlay = 'true';
+						scope.audioInfo.isPlay = true;
 					} else {
-						if ('false' === scope.audioInfo.isPlay) {
-							scope.audioInfo.isPlay = 'true';
+						if (false === scope.audioInfo.isPlay) {
+							scope.audioInfo.isPlay = true;
 							audio.pause();
 						} else {
-							scope.audioInfo.isPlay = 'false';
+							scope.audioInfo.isPlay = false;
+							audio.play();
+						}
+					}
+				}
+
+				scope.addToBox = (songItem) => {
+					// 关闭之前的歌曲
+					const idx = scope.musicQueue.findIndex(x => {
+						return x.isPlay === true;
+					})
+					if(idx !== -1) {
+						scope.musicQueue[idx]. isPlay = false
+					}
+
+					// 没找到, 添加进 music box
+					const song = scope.musicQueue.find(x => {
+						return x.songName === songItem.songName;
+					})
+					if(undefined === song) {
+						scope.musicQueue.push({
+							songSrc: songItem.songSrc,
+							songName: songItem.songName,
+							singerName: songItem.singerName,
+							// duration: songItem.duration,
+							isPlay: true,
+						})
+					}
+				}
+
+				scope.hideScrollBar = () => {
+					// hide scroll bar
+					document.body.style.overflowY = 'hidden';
+				}
+
+			}
+		}
+	}])
+
+	.directive('musicBoxSong', [() => {
+		return {
+			restrict: 'A',
+			replace: true,
+			scope: {
+				song: '=',
+				index: '=',
+			},
+			template: `
+				<tr class="current-song">
+					<td>
+						<span class="inner-index">{{index}}</span>
+						{{song.songName}}
+						<div class="inner-tool-wrapper">
+							<a href="javascript:;" title="播放"><i class="inner-tool-btn inner-play"></i></a>
+							<a href="javascript:;" title="添加"><i class="inner-tool-btn inner-add"></i></a>
+							<a href="javascript:;" title="下载"><i class="inner-tool-btn inner-download"></i></a>
+						</div>
+					</td>
+					<td>{{song.singerName}}</td>
+					<td><span class="inner-time">{{song.duration}}</span><a href="javascript:;" title="删除"><i class="inner-delete"></i></a></td>
+				</tr>	
+    `,
+			link: (scope, elem, attr) => {
+
+				const audio = document.getElementById('music-audio');
+
+				scope.bgPosition = index => {
+					if (2 === index) {
+						return 'bg-position2'
+					} else if (3 === index) {
+						return 'bg-position3'
+					} else if (4 === index) {
+						return 'bg-position4'
+					}
+				}
+
+				// play song
+				scope.playSong = songItem => {
+					if (audio.getAttribute('src') !== songItem.songSrc) {
+						audio.setAttribute('src', songItem.songSrc);
+						audio.play();
+						scope.audioInfo.isPlay = true;
+					} else {
+						if (false === scope.audioInfo.isPlay) {
+							scope.audioInfo.isPlay = true;
+							audio.pause();
+						} else {
+							scope.audioInfo.isPlay = false;
+							audio.play();
+						}
+					}
+				}
+
+				// play the first song of one block
+				scope.playCurrentFirst = musicListItem => {
+					if (audio.getAttribute('src') !== musicListItem[0].songSrc) {
+						audio.setAttribute('src', musicListItem[0].songSrc);
+						audio.play();
+						scope.audioInfo.isPlay = true;
+					} else {
+						if (false === scope.audioInfo.isPlay) {
+							scope.audioInfo.isPlay = true;
+							audio.pause();
+						} else {
+							scope.audioInfo.isPlay = false;
 							audio.play();
 						}
 					}

@@ -31,6 +31,7 @@ const pathSrc = {
     './src/assets/js/owl-animate.js',
     './src/assets/js/font-awesome.js',
     './src/assets/js/jquery.popup.js',
+    './src/assets/js/polyfill-find.js',
     
   ],
   initScript : [

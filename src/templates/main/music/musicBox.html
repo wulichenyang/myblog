@@ -32,19 +32,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr data-ng-repeat="i in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]" class="current-song">
-									<td>
-										<span class="inner-index">{{i}}</span>
-										心之眼的蛤
-										<div class="inner-tool-wrapper">
-											<a href="javascript:;" title="播放"><i class="inner-tool-btn inner-play"></i></a>
-											<a href="javascript:;" title="添加"><i class="inner-tool-btn inner-add"></i></a>
-											<a href="javascript:;" title="下载"><i class="inner-tool-btn inner-download"></i></a>
-										</div>
-									</td>
-									<td>G.E.M.邓紫棋</td>
-									<td><span class="inner-time">02:29</span><a href="javascript:;" title="删除"><i class="inner-delete"></i></a></td>
-								</tr>
+								<tr music-box-song ng-repeat="song in musicQueue track by $index" song="song" index="$index"></tr>
 							</tbody>
 						</table>
 					</div>
@@ -67,7 +55,7 @@
 			</a>
 			<div class="music-process-wrapper">
 				<div class="music-info">
-					<span>烟花易冷 - 李晨阳</span>
+					<span>{{songName}} - {{singerName}}</span>
 				</div>
 				<div class="music-time">
 					<span>{{currentTime}} / {{totalTime}}</span>
