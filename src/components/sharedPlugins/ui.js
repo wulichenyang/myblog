@@ -66,6 +66,7 @@ angular.module('sharedPlugins.ui', [])
 				index: '=',
 				audioInfo: '=',
 				musicQueue: '=',
+				audio: '='
 			},
 			template: `
 			<li class="music-list-item col-sm-6 col-md-3">
@@ -90,8 +91,6 @@ angular.module('sharedPlugins.ui', [])
     `,
 			link: (scope, elem, attr) => {
 
-				const audio = document.getElementById('music-audio');
-
 				scope.bgPosition = index => {
 					if (2 === index) {
 						return 'bg-position2'
@@ -104,34 +103,34 @@ angular.module('sharedPlugins.ui', [])
 
 				// play song
 				scope.playSong = songItem => {
-					if (audio.getAttribute('src') !== songItem.songSrc) {
-						audio.setAttribute('src', songItem.songSrc);
-						audio.play();
+					if (scope.audio.getAttribute('src') !== songItem.songSrc) {
+						scope.audio.setAttribute('src', songItem.songSrc);
+						scope.audio.play();
 						scope.audioInfo.isPlay = true;
 					} else {
 						if (false === scope.audioInfo.isPlay) {
 							scope.audioInfo.isPlay = true;
-							audio.pause();
+							scope.audio.pause();
 						} else {
 							scope.audioInfo.isPlay = false;
-							audio.play();
+							scope.audio.play();
 						}
 					}
 				}
 
 				// play the first song of one block
 				scope.playCurrentFirst = musicListItem => {
-					if (audio.getAttribute('src') !== musicListItem[0].songSrc) {
-						audio.setAttribute('src', musicListItem[0].songSrc);
-						audio.play();
+					if (scope.audio.getAttribute('src') !== musicListItem[0].songSrc) {
+						scope.audio.setAttribute('src', musicListItem[0].songSrc);
+						scope.audio.play();
 						scope.audioInfo.isPlay = true;
 					} else {
 						if (false === scope.audioInfo.isPlay) {
 							scope.audioInfo.isPlay = true;
-							audio.pause();
+							scope.audio.pause();
 						} else {
 							scope.audioInfo.isPlay = false;
-							audio.play();
+							scope.audio.play();
 						}
 					}
 				}
@@ -185,7 +184,8 @@ angular.module('sharedPlugins.ui', [])
 				song: '=',
 				index: '=',
 				audioInfo: '=',
-				musicQueue: '='
+				musicQueue: '=',
+				audio: '='
 			},
 			template: `
 				<tr class="current-song" ng-dblclick="playThisSong(song)">
@@ -204,16 +204,14 @@ angular.module('sharedPlugins.ui', [])
     `,
 			link: (scope, elem, attr) => {
 
-				const audio = document.getElementById('music-audio');
-
 				const updateStorage = () => {
 					localStorage.music = JSON.stringify(scope.musicQueue)
 				}
 
 				// 播放歌曲
 				scope.playThisSong = songItem => {
-					audio.setAttribute('src', songItem.songSrc);
-					audio.play();
+					scope.audio.setAttribute('src', songItem.songSrc);
+					scope.audio.play();
 					scope.audioInfo.isPlay = true;
 					
           // 找到之前正在播放的歌曲

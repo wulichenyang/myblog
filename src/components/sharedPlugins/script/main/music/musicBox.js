@@ -46,7 +46,7 @@ angular.module('musicBox', [])
     })
 
     // 获得歌曲长度
-    $scope.$watch('audio.currentSrc', () => {
+    $scope.$watchGroup(['audio.currentSrc','audio.duration'], () => {
       console.log($scope.audio.duration)
       console.log($scope.musicAudio.isPlay)
       if(!isNaN($scope.audio.duration)) {
