@@ -90,15 +90,25 @@ angular.module('sharedPlugins.ui', [])
 			</li>
     `,
 			link: (scope, elem, attr) => {
+				
+				const getPrevIndex = () => {
+					return scope.musicQueue.findIndex(x => true === x.isPlay); 
+				}
+
+				const getNextIndex = song => {
+					return scope.musicQueue.findIndex(x => x.songName === song.songName);
+				}
+
+				const updataQueueState = (idx, isPlay) => {
+					scope.musicQueue[idx].isPlay = isPlay;
+				}
+				
+				const updateStorage = () => {
+					localStorage.music = JSON.stringify(scope.musicQueue)
+				}
 
 				scope.bgPosition = index => {
-					if (2 === index) {
-						return 'bg-position2'
-					} else if (3 === index) {
-						return 'bg-position3'
-					} else if (4 === index) {
-						return 'bg-position4'
-					}
+					return `bg-position${index}`;
 				}
 
 				// play song
@@ -134,23 +144,17 @@ angular.module('sharedPlugins.ui', [])
 						}
 					}
 				}
- 
-				const updateStorage = () => {
-					localStorage.music = JSON.stringify(scope.musicQueue)
-				}
 
 				scope.addToBox = (songItem) => {
 
-          // 找到并关闭播放的歌曲
-					const idx = scope.musicQueue.findIndex(x => {
-						return x.isPlay === true;
-					})
+          // 设置之前歌曲的播放标识
+					const idx = getPrevIndex();
 
 					if(idx !== -1 && songItem.songName !== scope.musicQueue[idx].songName || null) {
-						scope.musicQueue[idx].isPlay = false
+						updataQueueState(idx, false)
 					}
 
-					// 没找到, 添加进 music box
+					// 将下一首添加进 music box
 					const song = scope.musicQueue.find(x => {
 						return x.songName === songItem.songName;
 					})
@@ -203,6 +207,18 @@ angular.module('sharedPlugins.ui', [])
 				</tr>	
     `,
 			link: (scope, elem, attr) => {
+				
+				const getPrevIndex = () => {
+					return scope.musicQueue.findIndex(x => true === x.isPlay); 
+				}
+
+				const getNextIndex = song => {
+					return scope.musicQueue.findIndex(x => x.songName === song.songName);
+				}
+
+				const updataQueueState = (idx, isPlay) => {
+					scope.musicQueue[idx].isPlay = isPlay;
+				}
 
 				const updateStorage = () => {
 					localStorage.music = JSON.stringify(scope.musicQueue)
@@ -215,37 +231,35 @@ angular.module('sharedPlugins.ui', [])
 					scope.audioInfo.isPlay = true;
 					
           // 找到之前正在播放的歌曲
-					const idx = scope.musicQueue.findIndex(x => {
-						return x.isPlay === true;
-					})
+					const idx = getPrevIndex();
 
 					// 即将播放的歌曲
-					const nextIdx = scope.musicQueue.findIndex(x => {
-						return x.songName === songItem.songName;
-					})
+					const nextIdx = getNextIndex(songItem);
+
 					// 不同则改变播放标识
 					if(idx !== nextIdx) {
 						if(-1 !== idx) {
-							scope.musicQueue[idx].isPlay = false;
+							updataQueueState(idx, false);
 						}
-						scope.musicQueue[nextIdx].isPlay = true
+						updataQueueState(nextIdx, true);
 					}
+
 					// 同步localStorage
 					updateStorage();
 				}
 
-				// 暂停所有
-				const pauseAll = () => {
-					const idx = scope.musicQueue.findIndex(x => true === x.isPlay);
+				// 暂停歌曲
+				const pausePrev = () => {
+					const idx = getPrevIndex();
 					if(-1 !== idx) {
-						scope.musicQueue[idx].isPlay = false;
+						updataQueueState(idx, false);
 					}
 				}
 
 				// 监听播放器停止
-				scope.$watch('audioInfo.isPlay', () => {
-					if(false === scope.audioInfo.isPlay) {
-						pauseAll();
+				scope.$watch('audio.paused', () => {
+					if(true === scope.audio.paused) {
+						pausePrev();
 						updateStorage();
 					}
 				})

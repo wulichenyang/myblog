@@ -39,14 +39,14 @@ angular.module('musicBox', [])
     $scope.singerName = getSingerName();
 
     // 更新歌名和歌手
-    $scope.$watch('audio.currentSrc', () => {
+    $scope.$watchGroup(['audio.currentSrc', 'audio.duration'], () => {
       console.log('name has changed')
       $scope.songName = getSongName();
       $scope.singerName = getSingerName();
     })
 
     // 获得歌曲长度
-    $scope.$watchGroup(['audio.currentSrc','audio.duration'], () => {
+    $scope.$watchGroup(['audio.currentSrc', 'audio.duration'], () => {
       console.log($scope.audio.duration)
       console.log($scope.musicAudio.isPlay)
       if(!isNaN($scope.audio.duration)) {
