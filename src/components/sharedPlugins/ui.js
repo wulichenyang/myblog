@@ -250,7 +250,7 @@ angular.module('sharedPlugins.ui', [])
 				audio: '='
 			},
 			template: `
-				<tr class="current-song" ng-dblclick="playThisSong(song)">
+				<tr ng-class="{'current-song': song.isPlay}" ng-dblclick="playThisSong(song)">
 					<td>
 						<span class="inner-index">{{index}}</span>
 						{{song.songName}}
