@@ -19,8 +19,6 @@ angular.module('music', [])
     // fetch localStorage
     $scope.musicQueue = getLocalStorage();
 
-    console.log('musicQueue', $scope.musicQueue)
-
     // init music
     $scope.musicList = musicInitList;
     

@@ -90,6 +90,22 @@ angular.module('sharedPlugins.ui', [])
 			</li>
     `,
 			link: (scope, elem, attr) => {
+
+				const getSongSrc = () => {
+					return scope.audio.getAttribute('src')
+				}
+
+				const setSongSrc = song => {
+					scope.audio.setAttribute('src', song.songSrc);
+				}
+
+				const play = () => {
+					scope.audio.play();
+				}
+				
+				const pause = () =>{
+					scope.audio.pause();
+				}
 				
 				const getPrevIndex = () => {
 					return scope.musicQueue.findIndex(x => true === x.isPlay); 
@@ -102,33 +118,75 @@ angular.module('sharedPlugins.ui', [])
 				const updataQueueState = (idx, isPlay) => {
 					scope.musicQueue[idx].isPlay = isPlay;
 				}
-				
+
 				const updateStorage = () => {
 					localStorage.music = JSON.stringify(scope.musicQueue)
+				}
+				
+				const appendQueue = (song, isPLay = true) => {
+					scope.musicQueue.unshift({
+							songSrc: song.songSrc,
+							songName: song.songName,
+							singerName: song.singerName,
+							// duration: song.duration,
+							isPlay: isPLay,
+					});
+				}
+
+				// 只负责更新数据
+				const updateNext = (song, isPlay) => {
+					const idx = getNextIndex(song);
+					// 队列里已有该歌曲
+					if(-1 !== idx) {
+						updataQueueState(idx, isPlay);
+						updateStorage();
+					} else {
+						// 不在队列则加入并更新
+						appendQueue(song);
+						updateStorage();
+					}
+				}
+				
+				const updatePrev = () => {
+					const idx = getPrevIndex();
+					if(-1 !== idx) {
+						updataQueueState(idx, false);
+						updateStorage();
+					}
+				}
+
+				const closeAndUpdatePrev = () =>{
+					updatePrev();
+					pause();
+				}
+
+				// 播放更新该歌曲
+				const playAndUpdateNext = song => {
+						setSongSrc(song);
+						play();
+						updateNext(song, true);
 				}
 
 				scope.bgPosition = index => {
 					return `bg-position${index}`;
 				}
 
-				// play song
+				// 播放选中歌曲
 				scope.playSong = songItem => {
-					if (scope.audio.getAttribute('src') !== songItem.songSrc) {
-						scope.audio.setAttribute('src', songItem.songSrc);
-						scope.audio.play();
-						scope.audioInfo.isPlay = true;
-					} else {
-						if (false === scope.audioInfo.isPlay) {
-							scope.audioInfo.isPlay = true;
-							scope.audio.pause();
-						} else {
-							scope.audioInfo.isPlay = false;
-							scope.audio.play();
-						}
+					// 播放的是其他歌曲
+					if (getSongSrc() !== songItem.songSrc) {
+						updatePrev();
+						playAndUpdateNext(songItem);
+					// 播放与之前相同歌曲
+					} else if (true === scope.audio.paused) {
+						// 播放歌曲
+						play();
+						// 更新队列
+						updateNext(songItem, true);
 					}
 				}
 
-				// play the first song of one block
+				// 播放当前音乐榜榜首歌曲
 				scope.playCurrentFirst = musicListItem => {
 					if (scope.audio.getAttribute('src') !== musicListItem[0].songSrc) {
 						scope.audio.setAttribute('src', musicListItem[0].songSrc);
@@ -207,7 +265,23 @@ angular.module('sharedPlugins.ui', [])
 				</tr>	
     `,
 			link: (scope, elem, attr) => {
+
+				const getSongSrc = () => {
+					return scope.audio.getAttribute('src')
+				}
+
+				const setSongSrc = song => {
+					scope.audio.setAttribute('src', song.songSrc);
+				}
+
+				const play = () => {
+					scope.audio.play();
+				}
 				
+				const pause = () =>{
+					scope.audio.pause();
+				}
+
 				const getPrevIndex = () => {
 					return scope.musicQueue.findIndex(x => true === x.isPlay); 
 				}
@@ -223,13 +297,55 @@ angular.module('sharedPlugins.ui', [])
 				const updateStorage = () => {
 					localStorage.music = JSON.stringify(scope.musicQueue)
 				}
+				
+				const appendQueue = (song, isPLay = true) => {
+					scope.musicQueue.unshift({
+							songSrc: song.songSrc,
+							songName: song.songName,
+							singerName: song.singerName,
+							// duration: song.duration,
+							isPlay: isPLay,
+					});
+				}
+
+				// 只负责更新数据
+				const updateNext = (song, isPlay) => {
+					const idx = getNextIndex(song);
+					// 队列里已有该歌曲
+					if(-1 !== idx) {
+						updataQueueState(idx, isPlay);
+						updateStorage();
+					} else {
+						// 不在队列则加入并更新
+						appendQueue(song);
+						updateStorage();
+					}
+				}
+				
+				const updatePrev = () => {
+					const idx = getPrevIndex();
+					if(-1 !== idx) {
+						updataQueueState(idx, false);
+						updateStorage();
+					}
+				}
+
+				const closeAndUpdatePrev = () =>{
+					updatePrev();
+					pause();
+				}
+
+				// 播放更新该歌曲
+				const playAndUpdateNext = song => {
+						setSongSrc(song);
+						play();
+						updateNext(song, true);
+				}
 
 				// 播放歌曲
 				scope.playThisSong = songItem => {
-					scope.audio.setAttribute('src', songItem.songSrc);
-					scope.audio.play();
-					scope.audioInfo.isPlay = true;
-					
+					playAndUpdateNext(songItem);
+
           // 找到之前正在播放的歌曲
 					const idx = getPrevIndex();
 
@@ -248,18 +364,10 @@ angular.module('sharedPlugins.ui', [])
 					updateStorage();
 				}
 
-				// 暂停歌曲
-				const pausePrev = () => {
-					const idx = getPrevIndex();
-					if(-1 !== idx) {
-						updataQueueState(idx, false);
-					}
-				}
-
 				// 监听播放器停止
 				scope.$watch('audio.paused', () => {
 					if(true === scope.audio.paused) {
-						pausePrev();
+						updatePrev();
 						updateStorage();
 					}
 				})

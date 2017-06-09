@@ -66,6 +66,7 @@ angular.module('musicBox', [])
           'width': (currentTime / $scope.audio.duration).toFixed(3)*100 + '%'
         }
       })
+      console.log('musicQueue', $scope.musicQueue)
     }, 1000)
 
 
