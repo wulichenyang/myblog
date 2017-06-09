@@ -344,31 +344,14 @@ angular.module('sharedPlugins.ui', [])
 
 				// 播放歌曲
 				scope.playThisSong = songItem => {
+          updatePrev();
 					playAndUpdateNext(songItem);
-
-          // 找到之前正在播放的歌曲
-					const idx = getPrevIndex();
-
-					// 即将播放的歌曲
-					const nextIdx = getNextIndex(songItem);
-
-					// 不同则改变播放标识
-					if(idx !== nextIdx) {
-						if(-1 !== idx) {
-							updataQueueState(idx, false);
-						}
-						updataQueueState(nextIdx, true);
-					}
-
-					// 同步localStorage
-					updateStorage();
 				}
 
 				// 监听播放器停止
-				scope.$watch('audio.paused', () => {
-					if(true === scope.audio.paused) {
+				scope.$watch('audio.ended', () => {
+					if(true === scope.audio.ended) {
 						updatePrev();
-						updateStorage();
 					}
 				})
 
