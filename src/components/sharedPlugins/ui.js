@@ -188,19 +188,7 @@ angular.module('sharedPlugins.ui', [])
 
 				// 播放当前音乐榜榜首歌曲
 				scope.playCurrentFirst = musicListItem => {
-					if (scope.audio.getAttribute('src') !== musicListItem[0].songSrc) {
-						scope.audio.setAttribute('src', musicListItem[0].songSrc);
-						scope.audio.play();
-						scope.audioInfo.isPlay = true;
-					} else {
-						if (false === scope.audioInfo.isPlay) {
-							scope.audioInfo.isPlay = true;
-							scope.audio.pause();
-						} else {
-							scope.audioInfo.isPlay = false;
-							scope.audio.play();
-						}
-					}
+					scope.playSong(musicListItem[0]);
 				}
 
 				scope.addToBox = (songItem) => {
