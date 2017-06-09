@@ -1,74 +1,106 @@
 angular.module('musicBox', [])
-  .controller('musicBoxCtrl', ['$scope', ($scope) => {
+  .controller('musicBoxCtrl', ['$scope', 'music.utils', ($scope, musicUtils) => {
 
-    const transformTime = seconds => {
-      let m, s;
-      m = Math.floor(seconds / 60);
-      m = m.toString().length == 1 ? ('0' + m) : m;
-      s = Math.floor(seconds - 60 * m);
-      s = s.toString().length == 1 ? ('0' + s) : s;
-      return m + ':' + s;
+    const getPlayingSong = () => {
+      return $scope.musicQueue.find(x => true === x.isPlay)
     }
 
     const getSongName = () => {
-      const name = $scope.musicQueue.find(x => {
-        return true === x.isPlay;
-      })
-      if(undefined === name) {
+      const song = getPlayingSong();
+      if(undefined === song) {
         return '歌曲';
       } else {
-        return name.songName;
+        return song.songName;
       }
     }
-    
+
     const getSingerName = () => {
-      const singer = $scope.musicQueue.find(x => {
-        return true === x.isPlay;
-      })
-      if(undefined === singer) {
+      const song = getPlayingSong();
+      if(undefined === song) {
         return '歌手'
       }
-      return singer.singerName;
+      return song.singerName;
+    }
+    
+    const updateSongName = () => {
+      $scope.songName = getSongName();
     }
 
-    let currentTime = 0;
-
-    $scope.currentTime = '00:00';
-    $scope.totalTime = '00:00';
-    $scope.songName = getSongName();
-    $scope.singerName = getSingerName();
-
-    // 更新歌名和歌手
-    $scope.$watchGroup(['audio.currentSrc', 'audio.duration'], () => {
-      console.log('name has changed')
-      $scope.songName = getSongName();
+    const updateSingerName = () => {
       $scope.singerName = getSingerName();
-    })
+    }
 
-    // 获得歌曲长度
-    $scope.$watchGroup(['audio.currentSrc', 'audio.duration'], () => {
-      console.log($scope.audio.duration)
-      console.log($scope.musicAudio.isPlay)
+    const freshSingerAndSong = () =>{
+      updateSongName();
+      updateSingerName();
       if(!isNaN($scope.audio.duration)) {
-        $scope.totalTime = transformTime($scope.audio.duration);
+        updateTotalTime();
       }
+    }
+
+    const getCurrentTime = () => {
+      return musicUtils.transformTime($scope.audio.currentTime);
+    }
+
+    const updateCurrentTime = () => {
+      $scope.currentTime = getCurrentTime();
+    }
+
+    const getTotalTime = () =>{
+      return musicUtils.transformTime($scope.audio.duration);
+    }
+
+    const updateTotalTime = () => {
+      $scope.totalTime = getTotalTime();
+    }
+
+    const getPrevIndex = () => {
+      return $scope.musicQueue.findIndex(x => true === x.isPlay); 
+    }
+
+    const updataQueueState = (idx, isPlay) => {
+      $scope.musicQueue[idx].isPlay = isPlay;
+    }
+
+    const updateStorage = () => {
+      localStorage.music = JSON.stringify($scope.musicQueue)
+    }
+        
+    const updatePrev = () => {
+        const idx = getPrevIndex();
+        if(-1 !== idx) {
+          updataQueueState(idx, false);
+          updateStorage();
+        }
+    }
+
+    const updateProcessBar = () => {
+      $scope.processBarStyle = {
+        'width': ($scope.audio.currentTime / $scope.audio.duration).toFixed(3)*100 + '%'
+      }
+    }
+
+    updateCurrentTime();
+    updateTotalTime();
+    freshSingerAndSong();
+
+    // 更新歌名歌手和歌曲长度
+    $scope.$watchGroup(['audio.currentSrc', 'audio.duration'], () => {
+      console.log('name and time has changed')
+      freshSingerAndSong();
     })
 
     // 更新时间/刷新进程条
     setInterval(() => {
-      currentTime = $scope.audio.currentTime;
       $scope.$apply(() => {
         if($scope.audio.ended) {
-          $scope.musicAudio.isPlay = false;
+          updatePrev();
         }
-        $scope.currentTime = transformTime(currentTime);
-        $scope.processBarStyle = {
-          'width': (currentTime / $scope.audio.duration).toFixed(3)*100 + '%'
-        }
+        updateCurrentTime();
+        updateProcessBar();
       })
       console.log('musicQueue', $scope.musicQueue)
     }, 1000)
-
 
 
   }])

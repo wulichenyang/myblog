@@ -44,7 +44,7 @@
 						<div class="music-list-wrapper col-xs-12">
 							<ul class="music-list row">
 
-								<music-list-item  ng-repeat="musicListItem in musicList track by $index" music-list-item="musicListItem" index="$index + 1" audio-info="$parent.musicAudio" music-queue="$parent.musicQueue" audio="$parent.audio"></music-list-item>
+								<music-list-item  ng-repeat="musicListItem in musicList track by $index" music-list-item="musicListItem" index="$index + 1" audio-info="$parent.musicAudio" music-queue="$parent.musicQueue" audio="$parent.audio" current-time="$parent.currentTime" process-bar-style="$parent.processBarStyle"></music-list-item>
 
 							</ul>
 						</div>

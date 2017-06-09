@@ -57,7 +57,7 @@ angular.module('sharedPlugins.ui', [])
 		}
 	}])
 
-	.directive('musicListItem', [() => {
+	.directive('musicListItem', ['music.utils', (musicUtils) => {
 		return {
 			restrict: 'E',
 			replace: true,
@@ -66,7 +66,9 @@ angular.module('sharedPlugins.ui', [])
 				index: '=',
 				audioInfo: '=',
 				musicQueue: '=',
-				audio: '='
+				audio: '=',
+				currentTime: '=',
+				processBarStyle: '=',
 			},
 			template: `
 			<li class="music-list-item col-sm-6 col-md-3">
@@ -106,7 +108,15 @@ angular.module('sharedPlugins.ui', [])
 				const pause = () =>{
 					scope.audio.pause();
 				}
-				
+
+				const currentTime = () => {
+					return scope.audio.currentTime;
+				}
+
+				const freshTime = () => {
+					scope.currentTime = musicUtils.transformTime(currentTime());
+				}
+
 				const getPrevIndex = () => {
 					return scope.musicQueue.findIndex(x => true === x.isPlay); 
 				}
@@ -167,6 +177,12 @@ angular.module('sharedPlugins.ui', [])
 						updateNext(song, true);
 				}
 
+				const updateProcessBar = () => {
+					scope.processBarStyle = {
+						'width': (scope.audio.currentTime / scope.audio.duration).toFixed(3)*100 + '%'
+					}
+				}
+
 				scope.bgPosition = index => {
 					return `bg-position${index}`;
 				}
@@ -178,8 +194,11 @@ angular.module('sharedPlugins.ui', [])
 						updatePrev();
 						playAndUpdateNext(songItem);
 					// 播放与之前相同歌曲
-					} else if (true === scope.audio.paused) {
-						// 播放歌曲
+					} else if(false === scope.audio.paused) {
+						updateProcessBar();
+						
+					}	else if (true === scope.audio.paused) {
+						// 播放暂停的该歌曲
 						play();
 						// 更新队列
 						updateNext(songItem, true);
@@ -235,7 +254,8 @@ angular.module('sharedPlugins.ui', [])
 				index: '=',
 				audioInfo: '=',
 				musicQueue: '=',
-				audio: '='
+				audio: '=',
+				currentTime: '=',
 			},
 			template: `
 				<tr ng-class="{'current-song': song.isPlay}" ng-dblclick="playThisSong(song)">
@@ -268,6 +288,14 @@ angular.module('sharedPlugins.ui', [])
 				
 				const pause = () =>{
 					scope.audio.pause();
+				}
+
+				const currentTime = () => {
+					return scope.audio.currentTime;
+				}
+
+				const freshTime = () => {
+					scope.currentTime = musicUtils.transformTime(currentTime());
 				}
 
 				const getPrevIndex = () => {
@@ -328,6 +356,12 @@ angular.module('sharedPlugins.ui', [])
 						setSongSrc(song);
 						play();
 						updateNext(song, true);
+				}
+
+				const updateProcessBar = () => {
+					scope.processBarStyle = {
+						'width': (scope.audio.currentTime / scope.audio.duration).toFixed(3)*100 + '%'
+					}
 				}
 
 				// 播放歌曲
