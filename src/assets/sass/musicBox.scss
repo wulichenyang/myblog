@@ -22,11 +22,14 @@
         .music-box-content {
             position: absolute;
             top: 11%;
-            bottom: 18%;
+            bottom: 22%;
             width: 100%;
             min-height: 33rem;
             .music-box-normal {
                 margin-right: 30%;
+                @media screen and(max-width: 767px) {
+                    margin-right: 0;
+                }
                 .music-box-toolbar {
                     position: relative;
                     margin-left: 1px;
@@ -37,7 +40,6 @@
                         margin-right: 6px;
                         padding: 0 2.3rem;
                         display: inline-block;
-                        min-width: 7.4rem;
                         height: 3.8rem;
                         color: #fff;
                         opacity: .8;
@@ -64,6 +66,9 @@
                             font-size: 1.6rem;
                             margin-right: .4rem;
                         }
+                    }
+                    @media screen and(max-width: 767px) {
+                        display: none;
                     }
                 }
                 .main-menu-wrapper {
@@ -97,6 +102,12 @@
                                 &:hover .inner-delete {
                                     display: block !important;
                                 }
+                                @media screen and(max-width: 767px) {
+                                    &:hover .inner-tool-wrapper,
+                                    &:hover .inner-delete {
+                                        display: none !important;
+                                    }
+                                }
                                 &:hover .inner-time {
                                     display: none;
                                 }
@@ -109,9 +120,8 @@
                                     overflow: hidden;
                                     text-overflow: ellipsis;
                                     &:first-child {
-                                        padding-right: 15rem;
-                                        width: 50rem;
-                                        max-width: 50rem;
+                                        padding-right: 5%;
+                                        width: 70%;
                                         .inner-tool-wrapper {
                                             display: none;
                                             position: absolute;
@@ -151,8 +161,7 @@
                                         }
                                     }
                                     &:nth-child(2), &:nth-child(3) {
-                                        width: 20rem;
-                                        max-width: 20rem;
+                                        width: 27%;
                                     }
                                     &:nth-child(3) {
                                         padding-right: 10rem;
@@ -179,6 +188,14 @@
                                         &:hover {
                                             background-position: -120px -160px;
                                         }
+                                    }
+                                }
+                            }
+                            @media screen and(max-width: 767px) {
+                                tr {
+                                    th:nth-child(3),
+                                    td:nth-child(3) {
+                                        display: none;
                                     }
                                 }
                             }
@@ -215,8 +232,8 @@
                     left: 0;
                     background-position: 0 -30px;
                 }
-                &.btn-pause, &.btn-play  {
-                    left: 8rem;
+                &.btn-pause, &.btn-play {
+                    left: 7%;
                     height: 3rem;
                     background-position: -30px 0;
                 }
@@ -228,8 +245,21 @@
                 }
                 &.btn-next {
                     top: .4rem;
-                    left: 16rem;
+                    left: 13.5%;
                     background-position: 0 -52px;
+                }
+                @media screen and(max-width: 767px) {
+                    &.btn-prev {
+                        left: 20%;
+                    }
+                    &.btn-pause, &.btn-play {
+                        left: 48%;
+                    }
+                    &.btn-next {
+                        right:20%;
+                        left: initial;
+                    }
+
                 }
                 span.control-item {
                     font: 0 / 0 a;
@@ -238,7 +268,7 @@
             .music-process-wrapper {
                 font-family: -webkit-body, Tahoma;
                 position: relative;
-                margin: 0 40rem 0 25rem;
+                margin: 0 30% 0 20%;
                 .music-info {
                     text-align: left;
                     padding-right: 12rem;
@@ -279,6 +309,10 @@
                         }
                     }
 
+                }
+                @media screen and(max-width: 767px) {
+                    margin: 0;
+                    bottom: 80%;
                 }
             }
         }
