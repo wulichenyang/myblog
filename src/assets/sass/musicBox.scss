@@ -87,6 +87,12 @@
                                         background-position: 1rem .5rem;
                                     }
                                 }
+                                &.current-pause {
+                                    span.inner-index {
+                                        text-indent: 0 !important;
+                                        background-image: none !important;
+                                    }
+                                }
                                 &:hover .inner-tool-wrapper,
                                 &:hover .inner-delete {
                                     display: block !important;

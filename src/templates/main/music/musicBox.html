@@ -44,13 +44,13 @@
 			</div>
 		</section>
 		<section class="music-box-control">
-			<a href="javascript:;" class="btn-control btn-prev">
+			<a href="javascript:;" class="btn-control btn-prev" ng-click="prevOrNext(true)">
 				<span class="control-item">上一首</span>
 			</a>
-			<a href="javascript:;" class="btn-control btn-pause">
+			<a href="javascript:;" class="btn-control" ng-class="{true: 'btn-play', false: 'btn-pause'}[audio.paused]" ng-click="toggleSong()">
 				<span class="control-item">播放/暂停</span>
 			</a>
-			<a href="javascript:;" class="btn-control btn-next">
+			<a href="javascript:;" class="btn-control btn-next" ng-click="prevOrNext(false)">
 				<span class="control-item">下一首</span>
 			</a>
 			<div class="music-process-wrapper">

@@ -75,17 +75,17 @@ angular.module('sharedPlugins.ui', [])
 				<div class="music-content">
 					<div class="music-item-bg" ng-class="bgPosition(index)"></div>
 					<i class="music-item-mask"></i>
-					<i ui-sref="main.music.musicBox" class="music-play-icon" ng-click="playCurrentFirst(musicListItem); hideScrollBar()"></i>
+					<i ui-sref="main.music.musicBox" class="music-play-icon" ng-click="playCurrentFirst(musicListItem);"></i>
 					<i class="music-line"></i>
 					<div class="music-item-header">
-						<a ui-sref="main.music.musicBox" ng-click="playCurrentFirst(musicListItem); hideScrollBar()">
+						<a ui-sref="main.music.musicBox" ng-click="playCurrentFirst(musicListItem);">
 							<h4>巅峰榜</h4>
 							<h3>流行指数</h3>
 						</a>
 					</div>
 					<ul class="song-list">
 
-						<song-list-item ui-sref="main.music.musicBox" ng-click="playSong(songListItem); addToBox(songListItem); hideScrollBar()" ng-repeat="songListItem in musicListItem track by $index" song-list-item="songListItem" index="$index + 1"></song-list-item>
+						<song-list-item ui-sref="main.music.musicBox" ng-click="playSong(songListItem); updateBox(songListItem);" ng-repeat="songListItem in musicListItem track by $index" song-list-item="songListItem" index="$index + 1"></song-list-item>
 						
 					</ul>
 				</div>
@@ -123,6 +123,12 @@ angular.module('sharedPlugins.ui', [])
 
 				const getNextIndex = song => {
 					return scope.musicQueue.findIndex(x => x.songName === song.songName);
+				}
+
+				const findSong = song => {
+					return scope.musicQueue.find(x => {
+						return x.songName === song.songName;
+					})
 				}
 
 				const updataQueueState = (idx, isPlay) => {
@@ -177,6 +183,27 @@ angular.module('sharedPlugins.ui', [])
 						updateNext(song, true);
 				}
 
+				const deleteSong = id => {
+					if(-1 !== id) {
+						scope.musicQueue.splice(id, 1)
+					}
+				}
+
+				const unshiftSong = song => {
+					scope.musicQueue.unshift({
+						songSrc: song.songSrc,
+						songName: song.songName,
+						singerName: song.singerName,
+						// duration: song.duration,
+						isPlay: true,
+					})
+				}
+
+				const rankFirst = song => {
+					deleteSong(getNextIndex(song))
+					unshiftSong(song)
+				}
+
 				const updateProcessBar = () => {
 					scope.processBarStyle = {
 						'width': (scope.audio.currentTime / scope.audio.duration).toFixed(3)*100 + '%'
@@ -193,6 +220,7 @@ angular.module('sharedPlugins.ui', [])
 					if (getSongSrc() !== songItem.songSrc) {
 						updatePrev();
 						playAndUpdateNext(songItem);
+						rankFirst(songItem);
 					// 播放与之前相同歌曲
 					} else if(false === scope.audio.paused) {
 						updateProcessBar();
@@ -210,36 +238,27 @@ angular.module('sharedPlugins.ui', [])
 					scope.playSong(musicListItem[0]);
 				}
 
-				scope.addToBox = (songItem) => {
+				// scope.updateBox = songItem => {
 
-          // 设置之前歌曲的播放标识
-					const idx = getPrevIndex();
+        //   // 设置之前歌曲的播放标识
+				// 	const idx = getPrevIndex();
 
-					if(idx !== -1 && songItem.songName !== scope.musicQueue[idx].songName || null) {
-						updataQueueState(idx, false)
-					}
+				// 	if(idx !== -1 && songItem.songName !== scope.musicQueue[idx].songName || null) {
+				// 		updataQueueState(idx, false)
+				// 	}
 
-					// 将下一首添加进 music box
-					const song = scope.musicQueue.find(x => {
-						return x.songName === songItem.songName;
-					})
-
-					if(undefined === song) {
-						scope.musicQueue.unshift({
-							songSrc: songItem.songSrc,
-							songName: songItem.songName,
-							singerName: songItem.singerName,
-							// duration: songItem.duration,
-							isPlay: true,
-						})
-						updateStorage();
-					}
-				}
-
-				scope.hideScrollBar = () => {
-					// hide scroll bar
-					document.body.style.overflowY = 'hidden';
-				}
+				// 	// 没找到则将下一首添加进 music box
+				// 	if(undefined === findSong(songItem)) {
+				// 		scope.musicQueue.unshift({
+				// 			songSrc: songItem.songSrc,
+				// 			songName: songItem.songName,
+				// 			singerName: songItem.singerName,
+				// 			// duration: songItem.duration,
+				// 			isPlay: true,
+				// 		})
+				// 		updateStorage();
+				// 	}
+				// }
 
 			}
 		}
@@ -258,7 +277,7 @@ angular.module('sharedPlugins.ui', [])
 				currentTime: '=',
 			},
 			template: `
-				<tr ng-class="{'current-song': song.isPlay}" ng-dblclick="playThisSong(song)">
+				<tr ng-class="{'current-song': song.isPlay, 'current-pause': audio.paused}" ng-dblclick="playThisSong(song)">
 					<td>
 						<span class="inner-index">{{index}}</span>
 						{{song.songName}}
@@ -304,6 +323,12 @@ angular.module('sharedPlugins.ui', [])
 
 				const getNextIndex = song => {
 					return scope.musicQueue.findIndex(x => x.songName === song.songName);
+				}
+
+				const findSong = song => {
+					return scope.musicQueue.find(x => {
+						return x.songName === song.songName;
+					})
 				}
 
 				const updataQueueState = (idx, isPlay) => {
@@ -372,7 +397,7 @@ angular.module('sharedPlugins.ui', [])
 
 				// 监听播放器停止
 				scope.$watch('audio.ended', () => {
-					if(true === scope.audio.ended) {
+					if(true === scope.audio.ended || scope.audio.paused) {
 						updatePrev();
 					}
 				})
@@ -394,7 +419,7 @@ angular.module('sharedPlugins.ui', [])
 				// 	}
 				// }
 
-				// scope.hideScrollBar = () => {
+				// scope () => {
 				// 	// hide scroll bar
 				// 	document.body.style.overflowY = 'hidden';
 				// }

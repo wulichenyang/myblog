@@ -1,5 +1,5 @@
 angular.module('music', [])
-  .controller('musicCtrl', ['$scope', 'musicInitList', ($scope, musicInitList) => {
+  .controller('musicCtrl', ['$scope', 'musicInitList', 'music.utils', ($scope, musicInitList, musicUtils) => {
 
     $scope.audio = document.querySelector('audio');
     
@@ -8,18 +8,20 @@ angular.module('music', [])
       isPlay: false
     }
 
-    const getLocalStorage = () => {
-      if(localStorage.music) {
-        return JSON.parse(localStorage.music);
-      } else {
-        return [];
-      }
-    }
-
     // fetch localStorage
-    $scope.musicQueue = getLocalStorage();
+    $scope.musicQueue = musicUtils.getLocalStorage();
 
     // init music
     $scope.musicList = musicInitList;
     
+    // listen to scroll bar
+    window.onpopstate = (e) => {
+      if(location.hash.includes('musicBox')) {
+        musicUtils.toggleScrollBar(false);
+      } else {
+        musicUtils.toggleScrollBar(true);
+      }
+    }
+
+
   }])

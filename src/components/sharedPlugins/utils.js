@@ -128,16 +128,36 @@ angular.module('utils', [])
     },
 
     getTotalTime(audio) {
-      return this.transformTime(audio.duration);
+			if(!isNaN(audio.duration)) return this.transformTime(audio.duration);
+			else return '00:00';
     },
 
-    getPrevIndex(musicQueue) {
-      return musicQueue.findIndex(x => true === x.isPlay); 
+		getSongSrc(audio) {
+			return audio.getAttribute('src');
+		},
+
+    getPrevIndex(musicQueue, audio) {
+      return musicQueue.findIndex(x => this.getSongSrc(audio) === x.songSrc); 
+    },
+
+    getLocalStorage() {
+      if(localStorage.music) {
+        return JSON.parse(localStorage.music);
+      } else {
+        return [];
+      }
     },
 
     updateStorage(musicQueue) {
       localStorage.music = JSON.stringify(musicQueue)
     },
 
+		toggleScrollBar(flag) {
+			if(flag) {
+				document.body.style.overflowY = 'auto';
+			} else {
+				document.body.style.overflowY = 'hidden';
+			}
+		},
 
 	})])
