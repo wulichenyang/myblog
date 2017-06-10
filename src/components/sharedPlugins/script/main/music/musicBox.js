@@ -46,7 +46,8 @@ angular.module('musicBox', [])
     updateCurrentTime($scope.audio);
     updateTotalTime($scope.audio);
     freshSingerAndSong($scope.musicQueue, $scope.audio);
-
+    updateProcessBar($scope.audio);
+    
     // 更新歌名歌手和歌曲长度
     $scope.$watchGroup(['audio.currentSrc', 'audio.duration'], () => {
       console.log('name and time has changed')
