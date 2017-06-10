@@ -75,17 +75,17 @@ angular.module('sharedPlugins.ui', [])
 				<div class="music-content">
 					<div class="music-item-bg" ng-class="bgPosition(index)"></div>
 					<i class="music-item-mask"></i>
-					<i ui-sref="main.music.musicBox" class="music-play-icon" ng-click="playCurrentFirst(musicListItem);"></i>
+					<i ui-sref="main.music.musicBox" class="music-play-icon" ng-click="playCurrentFirst(musicListItem)" ng-touchend="playCurrentFirst(musicListItem)"></i>
 					<i class="music-line"></i>
 					<div class="music-item-header">
-						<a ui-sref="main.music.musicBox" ng-click="playCurrentFirst(musicListItem);">
+						<a ui-sref="main.music.musicBox" ng-click="playCurrentFirst(musicListItem)" ng-touchend="playCurrentFirst(musicListItem)">
 							<h4>巅峰榜</h4>
 							<h3>流行指数</h3>
 						</a>
 					</div>
 					<ul class="song-list">
 
-						<song-list-item ui-sref="main.music.musicBox" ng-click="playSong(songListItem); updateBox(songListItem);" ng-repeat="songListItem in musicListItem track by $index" song-list-item="songListItem" index="$index + 1"></song-list-item>
+						<song-list-item ui-sref="main.music.musicBox" ng-click="playSong(songListItem); updateBox(songListItem)" ng-touchend="playSong(songListItem); updateBox(songListItem)" ng-repeat="songListItem in musicListItem track by $index" song-list-item="songListItem" index="$index + 1"></song-list-item>
 						
 					</ul>
 				</div>
@@ -277,7 +277,7 @@ angular.module('sharedPlugins.ui', [])
 				currentTime: '=',
 			},
 			template: `
-				<tr ng-class="{'current-song': song.isPlay, 'current-pause': audio.paused}" ng-dblclick="playThisSong(song)">
+				<tr ng-class="{'current-song': song.isPlay, 'current-pause': audio.paused}" ng-dblclick="playThisSong(song)" ng-touchend="playThisSong(song)">
 					<td>
 						<span class="inner-index">{{index}}</span>
 						{{song.songName}}
