@@ -17,7 +17,7 @@ angular.module('musicBox', [])
       $scope.musicQueue[idx].isPlay = isPlay;
     }
         
-    const updatePrev = (musicQueue) => {
+    const updatePrev = musicQueue => {
         const idx = musicUtils.getPrevIndex(musicQueue);
         if(-1 !== idx) {
           updataQueueState(idx, false);
