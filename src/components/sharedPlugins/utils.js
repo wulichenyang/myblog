@@ -102,4 +102,42 @@ angular.module('utils', [])
 			return m + ':' + s;
 		},
 
+    getPlayingSong(musicQueue) {
+      return musicQueue.find(x => true === x.isPlay)
+    },
+
+    getSongName(musicQueue) {
+      const song = this.getPlayingSong(musicQueue);
+      if(undefined === song) {
+        return '歌曲';
+      } else {
+        return song.songName;
+      }
+		},
+
+    getSingerName(musicQueue) {
+      const song = this.getPlayingSong(musicQueue);
+      if(undefined === song) {
+        return '歌手'
+      }
+      return song.singerName;
+    },
+
+    getCurrentTime(audio) {
+      return this.transformTime(audio.currentTime);
+    },
+
+    getTotalTime(audio) {
+      return this.transformTime(audio.duration);
+    },
+
+    getPrevIndex(musicQueue) {
+      return musicQueue.findIndex(x => true === x.isPlay); 
+    },
+
+    updateStorage(musicQueue) {
+      localStorage.music = JSON.stringify(musicQueue)
+    },
+
+
 	})])
