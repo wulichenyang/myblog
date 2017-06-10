@@ -41,6 +41,8 @@ angular.module('musicBox', [])
       }
     }
 
+    const process = document.getElementById('process');
+
     updateCurrentTime($scope.audio);
     updateTotalTime($scope.audio);
     freshSingerAndSong($scope.musicQueue, $scope.audio);
@@ -79,6 +81,21 @@ angular.module('musicBox', [])
           idx = (idx + len + 1) % len;
         }
         playAndOnNext(idx);
+      }
+    }
+
+    $scope.changeTime = e => {
+      let toWidth = e.offsetX;
+      let totalWidth = process.offsetWidth;
+
+      if(!isNaN($scope.audio.duration)) {
+        if(totalWidth < 0) {
+          $scope.audio.currentTime = 0;
+        } else {
+          $scope.audio.currentTime = (toWidth / totalWidth) * $scope.audio.duration;
+        }
+        updateCurrentTime($scope.audio);
+        updateProcessBar($scope.audio);
       }
     }
 

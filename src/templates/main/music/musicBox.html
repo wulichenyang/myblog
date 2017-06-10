@@ -60,7 +60,7 @@
 				<div class="music-time">
 					<span>{{currentTime}} / {{totalTime}}</span>
 				</div>
-				<div class="music-process" id="process">
+				<div class="music-process" id="process" ng-click="changeTime($event)">
 					<div class="process-bg"></div>
 					<div class="process-play" ng-style="processBarStyle"></div>
 				</div>
