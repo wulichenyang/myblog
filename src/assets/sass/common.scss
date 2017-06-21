@@ -443,8 +443,15 @@ ul, ol {
 
 
 /*Home page*/
-.header{							
+.header-bg {
+	width: 100%;
+	position: fixed;
+	height: 100vh;
+}
+.home-header-bg {
 	background-image: url(/1.jpg);
+}
+.header{							
 	height: 100vh;
 	position: relative;
 	min-height: 659px;
@@ -494,7 +501,17 @@ ul, ol {
 	background-color: #fff;
 	color: #424242;
 }
+.content-wrapper {
+		position: relative;
+		background: #fff;
+}
+.full-bg {
+		background-repeat: no-repeat;
+    background-size: cover;
+}
 
+
+// to be delete
 .about{
 	background-color: #f8f8f8;
 }
@@ -619,6 +636,7 @@ ul, ol {
 	font-size: 18px;
 }
 .footer{
+	position: relative;
 	background-color: #202020;
 	text-align: center;
 	padding: 60px 0;

@@ -1,27 +1,16 @@
-.main-header-music {
+.header-music-bg {
 	background-image: url(/music/music-bg.jpg) !important;
 }
-// .main-intro-box{
-// 	display: table;
-// 	padding-top: 22rem;
-// 	text-align: center;
-// 	width: 100%;
-// 	.intro {
-// 		h1 {
-//             padding-top: 8rem;
-// 			padding-bottom: 5rem;
-// 		}
-// 	}
-// }
+
 .my-music {
-    .blog-music-title {
-        padding: 3rem;
-        color: #575a5b;
-        text-align: center;
-        font-weight: 200;
-        font-size: 3rem;
-        border-bottom: 1px solid #eee;
-    }
+	.blog-music-title {
+			padding: 3rem;
+			color: #575a5b;
+			text-align: center;
+			font-weight: 200;
+			font-size: 3rem;
+			border-bottom: 1px solid #eee;
+	}
 	.music-content-bg {
 		background: url(/music/music-content-bg.jpg);
 		background-repeat: no-repeat;
