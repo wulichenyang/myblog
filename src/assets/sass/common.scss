@@ -6,6 +6,7 @@
 @import './music';
 @import './musicBox';
 @import './animate';
+@import './home';
 
 @import 'https://fonts.googleapis.com/css?family=Lora:400,400i,700|Raleway:300,600,700,900';
 @import 'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css';
@@ -40,7 +41,7 @@ a{
 	transition: all 0.3s ease-in-out;
 }
 section{
-	text-align: center;
+	text-align: left;
 }
 ul, ol {
 	list-style: none;
@@ -51,6 +52,9 @@ ul, ol {
 	padding-left: 30px;
 	border-left: 3px solid #424242;
 	color: #424242;
+}
+.relative-wrapper {
+	position: relative;
 }
 // preloading
 .preloader {
@@ -334,6 +338,15 @@ ul, ol {
 .full-bg {
 		background-repeat: no-repeat;
     background-size: cover;
+}
+
+/* home page content section */
+
+.section-bg {
+  background-color: #f6f6f6;
+}
+.section {
+  padding: 100px 0 60px;
 }
 
 /* footer */

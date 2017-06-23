@@ -1,0 +1,45 @@
+.home {
+  h2, p {
+    font-style: normal;
+  }
+  position: relative;
+  .block-center {
+    float: none;
+    margin: 0 auto;
+    .art-image {
+      overflow: hidden;
+    }
+  }
+  @media screen and (min-width: 992px) {
+    .padding-top-100 {
+      padding-top: 100px !important;
+    }
+    .padding-bottom-100 {
+      padding-bottom: 100px !important;
+    }
+    .line {
+      position: absolute;
+      width: 1px;
+      background-color: #eee;
+      left: -10px;
+      height: 100%;
+    }
+  }
+  .section-header {
+    padding-left: 30px;
+    h2.section-title {
+      margin-bottom: 20px;
+      font-size: 3rem;
+      font-weight: 600;
+    }
+    p {
+      font-family: loveto;
+      font-size: 1.5rem;
+      font-weight: 300;
+      line-height: 2.5rem;
+      letter-spacing: .045em;
+      color: #626262;
+      word-break: break-all;
+    }
+  }
+}
