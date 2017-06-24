@@ -1,0 +1,72 @@
+<div class="music-box-wrapper" style="background-color: rgb(128, 96, 128);">
+	<div class="music-box">
+		<section class="music-box-content">
+			<div class="music-box-normal">
+				<section class="music-box-toolbar">
+					<a class="tool-btn" href="javascript:;">
+						<i class="fa fa-heart-o"></i>
+						收藏
+					</a>
+					<a class="tool-btn" href="javascript:;">
+						<i class="fa fa-music"></i>
+						下载
+					</a>
+					<a class="tool-btn" href="javascript:;">
+						<i class="fa fa-trash-o"></i>
+						删除
+					</a>
+					<a class="tool-btn" href="javascript:;">
+						<i class="fa fa-minus-square-o"></i>
+						清空列表
+					</a>
+				</section>
+				
+				<section class="main-menu-wrapper">
+					<div class="main-menu-content">
+						<table class="menu-table">
+							<thead>
+								<tr>
+									<th>歌曲</th>
+									<th>歌手</th>
+									<th>时长</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr music-box-song ng-repeat="song in musicQueue track by $index" song="song" index="$index + 1" audio-info="$parent.musicAudio" music-queue="$parent.musicQueue" audio="$parent.audio"></tr>
+							</tbody>
+						</table>
+					</div>
+				</section>
+
+				<section class="song-info">
+					
+				</section>
+			</div>
+		</section>
+		<section class="music-box-control">
+			<a href="javascript:;" class="btn-control btn-prev" ng-click="prevOrNext(true)" ng-touchend="prevOrNext(true)">
+				<span class="control-item">上一首</span>
+			</a>
+			<a href="javascript:;" class="btn-control" ng-class="{true: 'btn-play', false: 'btn-pause'}[audio.paused]" ng-click="toggleSong()" ng-touchend="toggleSong()">
+				<span class="control-item">播放/暂停</span>
+			</a>
+			<a href="javascript:;" class="btn-control btn-next" ng-click="prevOrNext(false)" ng-touchend="prevOrNext(false)">
+				<span class="control-item">下一首</span>
+			</a>
+			<div class="music-process-wrapper">
+				<div class="music-info">
+					<span>{{songName}} - {{singerName}}</span>
+				</div>
+				<div class="music-time">
+					<span>{{currentTime}} / {{totalTime}}</span>
+				</div>
+				<div class="music-process" id="process" ng-click="changeTime($event)">
+					<div class="process-bg"></div>
+					<div class="process-play" ng-style="processBarStyle"></div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<div class="music-box-mask"></div>
+	<div class="music-box-bg"></div>
+</div>
