@@ -275,11 +275,11 @@ ul, ol {
 /*Home page header*/
 .header-bg {
 	width: 100%;
-	position: fixed;
+	position: fixed !important;
 	height: 100vh;
 }
 .home-header-bg {
-	background-image: url(/1.jpg);
+	// background-image: url(/1.jpg);
 }
 .header{							
 	height: 100vh;

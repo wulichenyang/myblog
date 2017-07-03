@@ -1,4 +1,7 @@
 .home {
+  .section-dark-bg {
+    background-color: $section-dark;
+  }
   h2, p {
     font-style: normal;
   }
@@ -8,6 +11,14 @@
     margin: 0 auto;
     .art-image {
       overflow: hidden;
+      img {
+        width: 100%;
+        border-top-left-radius: 60%;
+        border-bottom-right-radius: 60%;
+      }
+      @media screen and (max-width: 786px) {
+        padding-bottom: 30px;
+      }
     }
   }
   @media screen and (min-width: 992px) {
@@ -21,12 +32,24 @@
       position: absolute;
       width: 1px;
       background-color: #eee;
-      left: -10px;
       height: 100%;
+      &.line-1 {
+        left: 16px;
+      }
+      &.line-2 {
+        left: -12px;
+      }
+    }
+    .section-header {
+      &.header-in-right {
+        padding-left: 30px;
+      }
+      &.header-in-left {
+        padding-right: 30px;
+      }
     }
   }
   .section-header {
-    padding-left: 30px;
     h2.section-title {
       margin-bottom: 20px;
       font-size: 3rem;
