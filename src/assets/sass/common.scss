@@ -286,6 +286,10 @@ ul, ol {
 	position: relative;
 	min-height: 659px;
 }
+.header,
+section.header {
+	overflow: hidden;
+}
 .nav-fixed {
 	width: 100%;
     position: fixed;
@@ -350,22 +354,19 @@ ul, ol {
 }
 
 /* footer */
-.footer{
+.footer {
 	position: relative;
-	background-color: #202020;
+	background-color: #222;
 	text-align: center;
 	padding: 60px 0;
-}
-.footer span{
-	color: #51c2b9;
-}
-.footer p{
-	font-size: 21px;
-	color: #fff;
-	margin-bottom: 0;
-}
-.footer a{
-	color: #fff;
+	p {
+		margin: 0;
+		line-height: 3rem;
+		font-family: loveto;
+		font-size: 14px;
+		color: #777;
+		font-style: initial;
+	}
 }
 
 

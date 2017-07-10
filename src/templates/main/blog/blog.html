@@ -23,12 +23,12 @@
 		<div class="container pad_top15px">
 			<div class="row">
 				<div class="col-md-12">
-					<h2 class="blog-art-title">
+					<h2 class="blog-art-title wow fadeInDown">
 						Famous Arts
 					</h2>
 					<div class="row">
 
-						<art-intro-item ng-repeat="data in artInfo" data="data"></art-intro-item>
+						<art-intro-item class="wow fadeInDown" data-wow-delay="{{$index * .15  + 's'}}" ng-repeat="data in artInfo track by $index" data="data"></art-intro-item>
 
 					</div>
 				</div>

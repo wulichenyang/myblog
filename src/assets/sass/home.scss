@@ -161,4 +161,18 @@
       word-break: break-all;
     }
   }
+  .section-owl-wrap {
+    position: relative;
+    background-image: url(/home/carousel-wrap-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    .mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(16, 16, 16, 0.4);
+    }
+  }
 }

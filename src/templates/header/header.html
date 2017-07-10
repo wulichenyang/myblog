@@ -11,7 +11,7 @@
         <li>home</li>
       </a>
       <a ui-sref="main.blog">
-        <li>blog</li>
+        <li>art</li>
       </a>
       <a ui-sref="main.music">
         <li>music</li>
@@ -55,7 +55,7 @@
                         <a ui-sref="index.home">home</a>
                       </li>
                       <li>
-                        <a ui-sref="main.blog">blog</a>
+                        <a ui-sref="main.blog">art</a>
                       </li>
                       <li>
                         <a ui-sref="main.music">music</a>
@@ -91,13 +91,30 @@
             <div class="intro">
               <h1 class="wow fadeInDown">Welcome to lichenyang's</h1>
               <p class="wow fadeInDown">Follow the notes upon the journey</p>
-              <a class="btn vira-btn" href="#">Explore me</a>
+              <a class="btn vira-btn" href="mailto:wulichenyang@163.com?subject=联系信">Explore me</a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </header>
+
+	<section class="home-title content-wrapper">
+		<div class="container pad_top15px">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="blog-art-title wow fadeInDown">
+						My Journey
+					</h2>
+					<div class="row">
+
+						<art-intro-item ng-repeat="data in artInfo" data="data"></art-intro-item>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
   <main class="content-wrapper fadeIn">
       <div ui-view="content" class="main-content"></div>
@@ -107,8 +124,8 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
-          <p> Handcrafted with <span class="fa fa-heart"></span> More Templates <a href="http://www.cssmoban.com/" target="_blank"
-              title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+          <p>Copyright @2016 - 2017 一杯子乌龙奶茶</p>
+          <p>All Rights Reserved</p>
         </div>
       </div>
     </div>
