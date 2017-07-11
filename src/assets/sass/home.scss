@@ -174,5 +174,65 @@
       right: 0;
       background-color: rgba(16, 16, 16, 0.4);
     }
+    .carousel {
+      .carousel-control {
+        opacity: 0;
+        transition: ease .3s;
+        &.left {
+          transform: translateX(-50px)
+        }
+        &.right {
+          transform: translateX(50px)
+        }
+      }
+      &:hover {
+        .carousel-control {
+          opacity: .6;
+          &.left,
+          &.right {
+            transform: translateX(0)
+          }
+        }
+      }
+      padding-bottom: 30px;
+      .carousel-control.left,
+      .carousel-control.right {
+        background-image: none !important;
+      }
+      .item {
+        padding-top: 20px;
+        i {
+          font-size: 24px;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        p.desc {
+          padding: 20px;
+        }
+        h6 {
+          padding: 10px;
+        }
+        p,
+        h6,
+        i {
+          text-align: center;
+          color: #ddd;
+        }
+        h6 {
+          margin: 0;
+          margin-top: 18px;
+        }
+        img {
+          display: block;
+          width: 64px;
+          height: 64px;
+          margin: 0 auto;
+          transform: translateY(10px);
+          border-radius: 50%;
+        }
+      }
+    }
   }
 }
