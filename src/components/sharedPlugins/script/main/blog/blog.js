@@ -12,10 +12,10 @@ angular.module('blog', [])
       {
         router: '',
         artImg: '/blog/art-2.jpg',
-        artTitle: 'Introduction to Arts',
-        artIntro: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio tenetur, maxime nulla doloribus explicabo quidem facere reiciendis aliquid, quod sit odit. Quod, minus ipsum consectetur qui saepe doloremque hic sequi.',
+        artTitle: 'Girl with a Pearl Earring',
+        artIntro: 'The glimpse of the girl in the painting seemed to have absorbed the soul of the viewer. Vermeer used the whole black background in this painting, which made a very strong three-dimensional effect. Black background Foil The charm of the girl\'s image, so that she is like a lamp in the dark, dazzling.',
         artistImg: '/blog/artist-2.png',
-        artistName: 'Davincy Namea'
+        artistName: 'Johannes Vermeer'
       },
       {
         router: '',
