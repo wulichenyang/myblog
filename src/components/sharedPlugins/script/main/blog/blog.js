@@ -11,18 +11,18 @@ angular.module('blog', [])
       },
       {
         router: '',
-        artImg: 'https://nodecasts.io/wp-content/themes/sparkling-child/featured_courses/learn_es6.jpg',
+        artImg: '/blog/art-2.jpg',
         artTitle: 'Introduction to Arts',
         artIntro: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio tenetur, maxime nulla doloribus explicabo quidem facere reiciendis aliquid, quod sit odit. Quod, minus ipsum consectetur qui saepe doloremque hic sequi.',
-        artistImg: 'https://nodecasts.io/wp-content/themes/sparkling-child/featured_courses/Gew7gVjsRNOrs9M5xRri.jpeg',
+        artistImg: '/blog/artist-2.png',
         artistName: 'Davincy Namea'
       },
       {
         router: '',
-        artImg: 'https://nodecasts.io/wp-content/themes/sparkling-child/featured_courses/learn_es6.jpg',
+        artImg: '/blog/art-3.jpg',
         artTitle: 'Introduction to Arts',
         artIntro: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio tenetur, maxime nulla doloribus explicabo quidem facere reiciendis aliquid, quod sit odit. Quod, minus ipsum consectetur qui saepe doloremque hic sequi.',
-        artistImg: 'https://nodecasts.io/wp-content/themes/sparkling-child/featured_courses/Gew7gVjsRNOrs9M5xRri.jpeg',
+        artistImg: '/blog/artist-3.png',
         artistName: 'Davincy Namea'
       },
       {
@@ -43,10 +43,10 @@ angular.module('blog', [])
       },
       {
         router: '',
-        artImg: 'https://nodecasts.io/wp-content/themes/sparkling-child/featured_courses/learn_es6.jpg',
+        artImg: '/blog/art-6.jpg',
         artTitle: 'Introduction to Arts',
         artIntro: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio tenetur, maxime nulla doloribus explicabo quidem facere reiciendis aliquid, quod sit odit. Quod, minus ipsum consectetur qui saepe doloremque hic sequi.',
-        artistImg: 'https://nodecasts.io/wp-content/themes/sparkling-child/featured_courses/Gew7gVjsRNOrs9M5xRri.jpeg',
+        artistImg: '/blog/artist-6.png',
         artistName: 'Davincy Namea'
       },
     ]
