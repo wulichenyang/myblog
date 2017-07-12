@@ -201,15 +201,24 @@
       }
       .item {
         padding-top: 20px;
-        i {
-          font-size: 24px;
-          position: absolute;
-          top: 0;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-        p.desc {
-          padding: 20px;
+        header {
+          position: relative;
+          i {
+            transition: ease .3s;
+            font-size: 24px;
+            position: absolute;
+          }
+          i.fa-quote-left {
+            top: 0;
+            left:0;
+          }
+          i.fa-quote-right {
+            bottom: 0;
+            right: 0;
+          }
+          p.desc {
+            padding: 20px;
+          }
         }
         h6 {
           padding: 10px;
@@ -229,8 +238,13 @@
           width: 64px;
           height: 64px;
           margin: 0 auto;
-          transform: translateY(10px);
           border-radius: 50%;
+        }
+      }
+      .active.left, 
+      .active.right {
+        i {
+          opacity: 0;
         }
       }
     }
