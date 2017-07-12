@@ -44,10 +44,10 @@ angular.module('blog', [])
       {
         router: '',
         artImg: '/blog/art-6.jpg',
-        artTitle: 'Introduction to Arts',
-        artIntro: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio tenetur, maxime nulla doloribus explicabo quidem facere reiciendis aliquid, quod sit odit. Quod, minus ipsum consectetur qui saepe doloremque hic sequi.',
+        artTitle: 'Lafemmeauchapeau',
+        artIntro: 'The work depicts a woman in colourful clothes and a bowler hat, and the woman in the painting is the archetype of Matisse\'s wife. Matisse on the basis of realism on the most impulsive attempts, with a variety of colorful paint on the woman\'s face. He gradually understood that gorgeous color can restore the passion of life, evoke people\'s desires, sublimation to the ideal realm full of happiness.',
         artistImg: '/blog/artist-6.png',
-        artistName: 'Davincy Namea'
+        artistName: 'Henri Matisse'
       },
     ]
   }])
