@@ -24,12 +24,8 @@ const pathSrc = {
     //angular
     './src/assets/angular/angular.min.js',
     './src/assets/angular/angular-modal-service.min.js',
-    './src/assets/angular/angular-toasty.min.js',
     './src/assets/angular/angular-ui-router.min.js',
     // third-part js
-    './src/assets/js/bootstrap.min.js',
-    './src/assets/js/owl-animate.js',
-    './src/assets/js/font-awesome.js',
     './src/assets/js/jquery.popup.js',
     './src/assets/js/polyfill-find.js',
     './src/assets/js/wow.min.js',
@@ -44,18 +40,8 @@ const pathSrc = {
   ],
   //css
   css : [
-    './src/assets/css/bootstrap.min.css',
-    './src/assets/css/angular-toasty.min.css',
-    './src/assets/css/font-awesome.css',
-    './src/assets/css/ionocions.min.css',
     './src/assets/css/oop.css',
-    './src/assets/css/select.min.css',
     './src/assets/css/fonts-gstatic.css',
-    './src/assets/css/magnific-popup.css',
-    './src/assets/css/owl-theme.css',
-    './src/assets/css/owl-animate.css',
-    './src/assets/css/bootstrap.theme.min.css',
-
   ],
   sass : [
     './src/assets/sass/common.scss'

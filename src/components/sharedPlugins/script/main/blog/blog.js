@@ -20,10 +20,10 @@ angular.module('blog', [])
       {
         router: '',
         artImg: '/blog/art-3.jpg',
-        artTitle: 'Introduction to Arts',
-        artIntro: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio tenetur, maxime nulla doloribus explicabo quidem facere reiciendis aliquid, quod sit odit. Quod, minus ipsum consectetur qui saepe doloremque hic sequi.',
+        artTitle: 'Lady with an Ermine',
+        artIntro: '"Lady with an Ermine" depicts the temperament of the noble quiet Cecilia, she is the mistress of the Duke of Milan, favored. Later, the work was renewed by an anonymous person, and the less cordial atmosphere was even stronger.',
         artistImg: '/blog/artist-3.png',
-        artistName: 'Davincy Namea'
+        artistName: 'Leonardo da Vinci'
       },
       {
         router: '',
