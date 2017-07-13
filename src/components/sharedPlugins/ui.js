@@ -16,10 +16,9 @@ angular.module('sharedPlugins.ui', [])
 								<div class="art-img-wrapper">
 									<img src="{{data.artImg}}" alt="art">
 									<div class="mask"></div>
-									<h3>{{data.artTitle}}</h2>
+									<h3 class="title-tip">{{data.artTitle}}</h2>
 								</div>
 								<div class="art-content-wrapper">
-
 
 									<h2>{{data.artTitle}}</h2>
 									<p style="-webkit-box-orient:vertical">{{data.artIntro}}</p>
