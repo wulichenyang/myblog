@@ -1,0 +1,77 @@
+<div class="my-music">
+	
+	<!--header-background-->
+	<div class="header-bg header-music-bg full-bg"></div>
+
+	<!--header content-->
+	<section class="bg-img header fadeIn">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="main-intro-box">
+						<div class="intro">
+							<h1 class="wow fadeInDown">Music</h1>
+							<p class="wow fadeInDown">Return lies within hasty keys</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="content-wrapper">
+		<div class="container pad_top15px">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="blog-music-title wow fadeInDown">
+						Music Journey
+					</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="container-fluid" style="background: #fff;">
+		<div class="row">
+
+			<div class="music-content-bg">
+				<div class="container music-inner">
+					<div class="row">
+						<div class="music-inner-title container">
+							<div class="row wow fadeInDown" deta-wow-delay=".3s">
+								<span class="music-inner-line col-xs-2"></span>
+								<h2 class="col-xs-8">Soul Melody</h2>
+								<span class="music-inner-line col-xs-2"></span>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="music-list-wrapper col-xs-12">
+							<ul class="music-list row">
+
+								<music-list-item class="wow fadeInDown" data-wow-delay="{{$index * .1 + .5 + 's'}}" ng-repeat="musicListItem in musicList track by $index" music-list-item="musicListItem" index="$index + 1"
+								 audio-info="$parent.musicAudio" music-queue="$parent.musicQueue" audio="$parent.audio" current-time="$parent.currentTime"
+								 process-bar-style="$parent.processBarStyle"></music-list-item>
+
+							</ul>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="music-audio">
+							<audio id="music-audio" src="{{musicAudio.songSrcNow}}"></audio>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<section class="fadeIn">
+		<div ui-view="musicBoxContent"></div>
+	</section>
+
+</div>
