@@ -14,7 +14,7 @@ angular.module('sharedPlugins.ui', [])
 						<a>
 							<div class="col-xs-12">
 								<div class="art-img-wrapper">
-									<img src="{{data.artImg}}" alt="art">
+									<img ng-src="{{data.artImg}}" alt="art">
 									<div class="mask"></div>
 									<h3 class="title-tip">{{data.artTitle}}</h2>
 								</div>
@@ -25,7 +25,7 @@ angular.module('sharedPlugins.ui', [])
 									<div class="row artist-wrapper">
 										<div class="col-xs-12">
 											<div>
-												<img src="{{data.artistImg}}" alt="artist">
+												<img ng-src="{{data.artistImg}}" alt="artist">
 												<span>{{data.artistName}}</span>
 											</div>
 										</div>
