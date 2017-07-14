@@ -1,0 +1,39 @@
+<div class="my-blog">
+
+  <!--header-background-->
+  <div class="header-bg header-art-bg full-bg"></div>
+
+	<!--header content-->
+	<section class="bg-img header fadeIn">
+		<div class="container">
+			<div class="row">
+			<div class="col-sm-12">
+				<div class="main-intro-box">
+				<div class="intro">
+					<h1 class="wow fadeInDown">Fine Arts</h1>
+					<p class="wow fadeInDown">Draw my heart to you</p>
+				</div>
+				</div>
+			</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="content-wrapper">
+		<div class="container pad_top15px">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="blog-art-title wow fadeInDown">
+						Famous Arts
+					</h2>
+					<div class="row">
+
+						<art-intro-item class="wow fadeInDown" data-wow-delay="{{$index * .15  + 's'}}" ng-repeat="data in artInfo track by $index" data="data"></art-intro-item>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</div>
