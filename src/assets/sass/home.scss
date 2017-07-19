@@ -145,7 +145,7 @@
           overflow: hidden;
           max-height: 18rem;
           @media screen and (max-width: $screen-lg) {
-            max-height: 13rem;
+            max-height: 13.5rem;
           }
           @media screen and (max-width: $screen-md) {
             max-height: 11rem;
@@ -153,11 +153,26 @@
               display: none;
             }
           }
-          @media screen and (max-width: $screen-sm) {
-            max-height: 11rem;
+          @media screen and (max-width: 767px) {
+            max-height: 25rem;
             & + a {
               display: initial;
             }
+          }
+          @media screen and (max-width: $screen-xs) {
+            max-height: 25rem;
+            & + a {
+              display: initial;
+            }
+          }
+          @media screen and (max-width: 460px) {
+            max-height: 18rem;
+          }
+          @media screen and (max-width: 390px) {
+            max-height: 13.5rem;
+          }
+          @media screen and (max-width: 340px) {
+            max-height: 9rem;
           }
         }
         .vira-btn {
