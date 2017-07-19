@@ -1,3 +1,5 @@
+@import './variables';
+
 .home {
   .section-dark-bg {
     background-color: $section-dark;
@@ -108,6 +110,70 @@
       }
       @media screen and (max-width: 786px) {
         padding-bottom: 30px;
+      }
+    }
+    .no-padding-wrapper {
+      &.col-sm-6 {
+        padding: 0 0;
+      }
+
+    }
+    .detail-box-wrapper {
+      position: relative;
+      overflow: hidden;
+      background-color: #efefef;
+      &.right-box {
+        background-color: #51c2b9;
+      }
+      &.left-box {
+        background-color: #ffae79;
+      }
+      &:after {
+        content: '';
+        display: block;
+        padding-bottom: 100%;
+      }
+      .detail-box-content {
+        position: absolute;
+        padding: 3rem;
+        height: 100%;
+        text-align: center;
+        h3 {
+          margin-bottom: 25px;
+        }
+        p {
+          overflow: hidden;
+          max-height: 18rem;
+          @media screen and (max-width: $screen-lg) {
+            max-height: 13rem;
+          }
+          @media screen and (max-width: $screen-md) {
+            max-height: 11rem;
+            & + a {
+              display: none;
+            }
+          }
+          @media screen and (max-width: $screen-sm) {
+            max-height: 11rem;
+            & + a {
+              display: initial;
+            }
+          }
+        }
+        .vira-btn {
+          position: absolute;
+          left: 50%;
+          bottom: 1rem;
+          margin-left: -80px;
+          padding: 10px 20px;
+          color: #818181;
+          border: #818181 solid 1px;
+          &:hover {
+            background-color: transparent;
+            color: #51c2b9;
+            border: #51c2b9 solid 1px; 
+          }
+        }
       }
     }
   }
