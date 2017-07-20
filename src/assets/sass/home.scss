@@ -116,12 +116,22 @@
       &.col-sm-6 {
         padding: 0 0;
       }
-
+      &:nth-of-type(1), &:nth-of-type(4) {
+        .detail-box-wrapper {
+          .detail-box-content {
+            background-color: #efefef;
+            z-index: 999;
+            transition: ease-in-out .3s;
+            &:hover {
+              transform: scale(1.05);
+              box-shadow: 0 0 10px #aaa;
+            }
+          }
+        }
+      }
     }
     .detail-box-wrapper {
       position: relative;
-      overflow: hidden;
-      background-color: #efefef;
       &.right-box {
         background-color: #51c2b9;
       }
