@@ -125,10 +125,9 @@ ul, ol {
 }
 
 /*Button*/
-.vira-btn{
-	border-color: $theme-green;
+.vira-btn, 
+.apollo-btn {
 	font-style: italic;
-	color: $theme-green;
 	border-radius: 0;
 	letter-spacing: 3px;
 	padding: 15px 80px;
@@ -136,9 +135,71 @@ ul, ol {
 	background-color: transparent;
 	transition: all 0.3s ease-in-out;
 }
+.vira-btn {
+	color: $theme-green;
+	border-color: $theme-green;
+}
 .vira-btn:hover{
 	background-color: $theme-green;
 	color: #fff;
+}
+.apollo-btn {
+	display: inline-block;
+	position: relative;
+	vertical-align: middle;
+	text-align: center;
+	color: #fff;
+	border: solid 1px #fff;
+	overflow: hidden;
+	>span {
+		position: relative;
+		z-index: 5;
+	}
+	&:hover {
+		>span {
+			color: #424242;
+		}
+		&:after {
+		-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    filter: alpha(opacity=100);
+    opacity: 1;
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    -webkit-opacity: 1;
+    -o-transform: skewX(0deg) translateX(80%);
+    -ms-transform: skewX(0deg) translateX(80%);
+    -moz-transform: skewX(0deg) translateX(80%);
+    -webkit-transform: skewX(0deg) translateX(80%);
+    transform: skewX(0deg) translateX(80%);
+		}
+	}
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		z-index: 1;
+		background: #fff;
+		top: 0;
+		left: -160%;
+		width: 160%;
+		height: 110%;
+		-o-transform: skewX(-30deg);
+		-ms-transform: skewX(-30deg);
+		-moz-transform: skewX(-30deg);
+		-webkit-transform: skewX(-30deg);
+		transform: skewX(-30deg);
+		-webkit-transition: all 400ms ease-in-out;
+		-moz-transition: all 400ms ease-in-out;
+		-o-transition: all 400ms ease-in-out;
+		transition: all 400ms ease-in-out;
+		-ms-transition: all 400ms ease-in-out;
+		-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+		filter: alpha(opacity=0);
+		opacity: 0;
+		-moz-opacity: 0;
+		-khtml-opacity: 0;
+		-webkit-opacity: 0;
+	}
 }
 .solid{
 	background-color: $theme-green;
