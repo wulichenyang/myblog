@@ -9,6 +9,11 @@
 @import './home';
 
 /*Global Settings*/
+::selection {
+	color: #fff;
+	background-color: $theme-green;
+}
+
 body{
 	font-family: 'Lora';
 }
@@ -121,9 +126,9 @@ ul, ol {
 
 /*Button*/
 .vira-btn{
-	border-color: #51c2b9;
+	border-color: $theme-green;
 	font-style: italic;
-	color: #51c2b9;
+	color: $theme-green;
 	border-radius: 0;
 	letter-spacing: 3px;
 	padding: 15px 80px;
@@ -132,16 +137,16 @@ ul, ol {
 	transition: all 0.3s ease-in-out;
 }
 .vira-btn:hover{
-	background-color: #51c2b9;
+	background-color: $theme-green;
 	color: #fff;
 }
 .solid{
-	background-color: #51c2b9;
+	background-color: $theme-green;
 	color: #fff;
 }
 .solid:hover{
 	background-color: #fff;
-	color: #51c2b9;
+	color: $theme-green;
 }
 .small-btn{
 	padding: 10px 130px;
@@ -181,7 +186,7 @@ ul, ol {
 	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 .menu-item ul a:hover li{
-	color: #51c2b9;
+	color: $theme-green;
 	text-decoration: none;
 }
 .hide-menu{
@@ -380,11 +385,11 @@ section.header {
 	left: -1px;
 }
 .owl-theme .owl-dots .owl-dot span{
-	background-color: #51c2b9;
+	background-color: $theme-green;
 	margin: 5px;
 }
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span{
-	background-color: #51c2b9;
+	background-color: $theme-green;
 	height: 14px;
 	width: 14px;
 	margin: 3px;
