@@ -120,11 +120,12 @@
         .detail-box-wrapper {
           .detail-box-content {
             background-color: #efefef;
-            z-index: 999;
             transition: ease-in-out .3s;
+            z-index: 999;
             &:hover {
               transform: scale(1.05);
               box-shadow: 0 0 10px #aaa;
+              z-index: 1000;
             }
           }
         }
