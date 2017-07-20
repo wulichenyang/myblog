@@ -253,6 +253,116 @@
       word-break: break-all;
     }
   }
+  .section-intro-title,
+  .section-intro-desc {
+    text-align: center;
+  }
+  .section-intro-title {
+    background-color: #dbcfbb;
+    h2,
+    h2 + p {
+      color: #fff;
+    }
+    h2 {
+      margin: 0;
+      padding: 4px 0;
+      font-size: 42px;
+      letter-spacing: 4px;
+      display: inline-block;
+      text-transform: uppercase;
+      border-bottom: 1px solid #fff;
+    }
+    h2 + p {
+      display: block;
+      margin: 0;
+      padding: 30px 0 48px;
+      font-size: 32px;
+      letter-spacing: 6px;
+    }
+    @media screen and (max-width: $screen-md) {
+      h2 {
+        font-size: 30px;
+      }
+      h2 + p {
+        font-size: 22px;
+      }
+    }
+  }
+  .section-intro-desc {
+    background-color: #e2ddd9;
+    position: relative;
+    padding-top: 150px;
+    padding-bottom: 100px;
+      dl {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-top: -38px;
+        width: 78px;
+        transform: translateX(-50%);
+        width: 76px;
+        overflow: hidden;
+        margin-bottom: 15px;
+        dt {
+          img {
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 15px;
+          }
+        }
+        dd {
+          font-size: 14px;
+          line-height: 25px;
+        }
+        dd:nth-of-type(1) {
+          font-weight: 400;
+          color: #818181;
+        }
+        dd:nth-of-type(2) {
+          color: #818181;
+        }
+      }
+      .desc-wrap {
+        position: relative;
+        width: 70%;
+        margin: 0 auto;
+        i, p {
+          color: #818181;
+        }
+        i {
+          position: absolute;
+          font-size: 40px;
+          &.fa-chevron-left {
+            top: 0;
+            left: 0;
+            margin-top: -28px;
+          }
+          &.fa-chevron-right {
+            bottom: 0;
+            right: 0;
+            margin-bottom: -28px;
+            margin-right: 20px;
+          }
+        }
+        @media screen and (max-width: $screen-lg) {
+          i {
+            display: none;
+          }
+        }
+        p {
+          line-height: 30px;
+          font-size: 14px;
+          font-weight: 400;
+        }
+        @media screen and (max-width: $screen-sm) {
+          p {
+            padding-top: 50px;
+          }
+        }
+      }
+  }
   .section-owl-wrap {
     position: relative;
     background-image: url(/home/carousel-wrap-bg.jpg);
@@ -264,7 +374,7 @@
       left: 0;
       bottom: 0;
       right: 0;
-      background-color: rgba(16, 16, 16, 0.4);
+      background-color: rgba(16, 16, 16, 0.3);
     }
     .carousel {
       .carousel-control {
