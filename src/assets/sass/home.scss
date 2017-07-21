@@ -148,10 +148,15 @@
         position: absolute;
         padding: 3rem;
         height: 100%;
-        text-align: center;
+        h3,
+        p {
+          cursor: default;
+        }
         h3 {
+          text-align: center;
           margin-bottom: 25px;
         }
+        
         p {
           overflow: hidden;
           max-height: 18rem;
@@ -198,6 +203,56 @@
             background-color: transparent;
             color: #51c2b9;
             border: #51c2b9 solid 1px; 
+          }
+        }
+        &>i {
+          font-size: 54px;
+          color: #fff;
+          margin-bottom: 10px;
+        }
+        .line {
+          display: block;
+          width: 30%;
+          height: 3px;
+          background-color: #fff;
+        }
+        .line + h2,
+        &>.color-desc {
+          color: #fff;
+          margin: 14px 0;
+          cursor: default;
+        }
+        .fix-margin {
+          margin-top: 28px;
+        }
+        @media screen and (max-width: $screen-md) {
+          .line + h2,
+          &>.color-desc {
+            color: #fff;
+            margin: 5px 0;
+          }
+          .fix-margin {
+            margin: 8px;
+          }
+        }
+        @media screen and (max-width: $screen-sm) {
+          .line + h2,
+          &>.color-desc {
+            color: #fff;
+            margin: 5px 0;
+          }
+          .fix-margin {
+            margin-top: 12px;
+          }
+        }
+        @media screen and (max-width: $screen-xs) {
+          .line + h2,
+          &>.color-desc {
+            color: #fff;
+            margin: 15px 0;
+          }
+          .fix-margin {
+            margin-top: 25px;
           }
         }
       }
