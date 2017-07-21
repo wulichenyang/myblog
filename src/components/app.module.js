@@ -13,6 +13,7 @@ angular.module('app.modules', [
 
     // controller modules
     'header',
+    'home',
     'main',
     'blog',
     'music',

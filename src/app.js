@@ -21,7 +21,7 @@ angular.module('myApp', ['ui.router', 'app.modules'])
 				'views': {
 					'content': {
 						'templateUrl': locat + '/html/home/home.html',
-						// 'controller': 'homeCtrl'
+						'controller': 'homeCtrl'
 					},
 				},
 			})
