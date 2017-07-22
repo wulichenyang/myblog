@@ -1,0 +1,135 @@
+/*
+    common stylesheet always use at normal screen
+*/
+.height20px{
+    height: 20px;
+}
+.mar_left20px{
+    margin-left: 20px;
+}
+.mar_right20px{
+    margin-right: 20px;
+}
+.mar_top20px{
+    margin-top: 20px;
+}
+.mar_bottom20px{
+    margin-bottom: 20px;
+}
+.mar_left10px{
+    margin-left: 10px;
+}
+.pad_left20px{
+    padding-left: 20px;
+}
+.pad_top15 {
+	padding-top: 15%;
+}
+.pad_top50px {
+	padding-top: 50px;
+}
+.pad_top15px {
+	padding-top: 15px;
+}
+.pad_right10px {
+    padding-right: 10px;
+}
+.border2px{
+    border: 2px solid rgb(245,245,245);
+}
+.width96Pauto{
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+.height220px {
+    height: 220px;
+}
+.borderBottom {
+    border-bottom: 1px dotted #d2d6de;
+}
+.xhidden{
+    overflow-x: hidden;
+}
+.item.active {
+    display: block;
+}
+.item.inactive {
+    display: none;
+}
+.no-minHeight {
+    min-height: 0;
+}
+.adjustHeight {
+    line-height: 34px; padding-top: 10px;
+} 
+/* following css is for the oi.select plugin */
+label.chooseDataSource-small {
+    width: 102px;
+}
+label.chooseDataSource-large {
+    width: 180px;
+}
+label.chooseDataSource-small .adjustPos {
+    position: absolute; top: 20px;
+}
+label.chooseDataSource-large .adjustPos {
+    position: absolute; top: 10px;
+}
+/* btn-outline (bootstrap) */
+.btn-outline-danger {
+    background-image: none;
+    background-color: #fff;
+}
+.btn-outline-danger:hover {
+	color: #fff;
+}
+.btn-outline-info {
+    color: #00acd6;
+    background-image: none;
+    background-color: #fff;
+    border-color: #00acd6;
+}
+.btn-outline-info:hover {
+	background-color:#00acd6;
+	color: #fff;
+}
+/* animation: page fade in */
+.fadeIn {
+    animation: page-fade-in 1s;
+    -webkit-animation: page-fade-in 1s;
+    -ms-animation: page-fade-in 1s;
+    -moz-animation: page-fade-in 1s;
+    -o-animation: page-fade-in 1s;
+}
+@keyframes page-fade-in {
+    0% {opacity: 0}
+    100% {opacity: 1}
+} 
+@-webkit-keyframes page-fade-in {
+    0% {opacity: 0}
+    100% {opacity: 1}
+} 
+@-ms-keyframes page-fade-in {
+    0% {opacity: 0}
+    100% {opacity: 1}
+} 
+@-moz-keyframes page-fade-in {
+    0% {opacity: 0}
+    100% {opacity: 1}
+} 
+@-o-keyframes page-fade-in {
+    0% {opacity: 0}
+    100% {opacity: 1}
+} 
+/*
+    mobile stylesheet always use at small screen
+*/
+@media screen and (max-width: 768px) {
+    .m-margin-left10px{
+        margin-left: 10px;
+    }
+    .m-margin-right10px{
+        margin-right: 10px;
+    }
+}
