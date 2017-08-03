@@ -1,0 +1,92 @@
+
+<!--preloading-->
+<div class="preloader"></div>
+
+<header class="header-nav-wrapper">
+  <!--nav for mobile phone-->
+  <div id="menu-item" class="menu-item hide-menu">
+    <div class="container">
+      <ul>
+        <i class="fa fa-close"></i>
+        <a ui-sref="index.home">
+          <li>home</li>
+        </a>
+        <a ui-sref="main.blog">
+          <li>art</li>
+        </a>
+        <a ui-sref="main.music">
+          <li>music</li>
+        </a>
+        <a href="main.">
+          <li>workstation</li>
+        </a>
+        <a href="main.">
+          <li>team</li>
+        </a>
+        <a href="main.">
+          <li>contact</li>
+        </a>
+      </ul>
+    </div>
+  </div>
+  <!--nav for normal-->
+  <nav class="navbar navbar-default navbar-vira nav-fixed">
+    <div class="container">
+      <div class="navigation-bar">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="row">
+              <div class="logo col-xs-2">
+                <a ui-sref="index.home"><span class="fa fa-viacoin"></span></a>
+              </div>
+              <!--nav for min 992px-->
+              <div class="main-menu col-xs-10">
+                <ul class="container-fluid nav">
+                    <li class="active">
+                      <a ui-sref="index.home">home</a>
+                    </li>
+                    <li>
+                      <a ui-sref="main.blog">art</a>
+                    </li>
+                    <li>
+                      <a ui-sref="main.music">music</a>
+                    </li>
+                    <li>
+                      <a ui-sref="main.">workstation</a>
+                    </li>
+                    <li>
+                      <a ui-sref="main.">team</a>
+                    </li>
+                    <li>
+                      <a ui-sref="main.">contact</a>
+                    </li>
+              </div>
+            </div>
+          </div>
+          <div class="menu-mobile text-right">
+            <div class="menu m">
+              <a><span class="ion-navicon ion-android-menu"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="content-wrapper fadeIn">
+  <div ui-view="mainContent" class="main-content"></div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <p>Copyright @2016 - 2017 一杯子乌龙奶茶</p>
+        <p>All Rights Reserved</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="assets/js/init.min.js"></script>

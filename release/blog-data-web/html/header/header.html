@@ -1,0 +1,131 @@
+
+<!--preloading-->
+<div class="preloader"></div>
+
+<!--nav for mobile phone-->
+<div id="menu-item" class="menu-item hide-menu">
+  <div class="container">
+    <ul>
+      <i class="fa fa-close"></i>
+      <a ui-sref="index.home">
+        <li>home</li>
+      </a>
+      <a ui-sref="main.blog">
+        <li>art</li>
+      </a>
+      <a ui-sref="main.music">
+        <li>music</li>
+      </a>
+      <a ui-sref="main.music">
+        <li>workstation</li>
+      </a>
+      <a ui-sref="main.music">
+        <li>team</li>
+      </a>
+      <a ui-sref="main.music">
+        <li>contact</li>
+      </a>
+    </ul>
+  </div>
+</div>
+<div class="main">
+
+  <!--header-background-->
+  <div class="header-bg home-header-bg full-bg"></div>
+
+  <!--header wrapper-->
+  <header class="bg-img header fadeIn">
+    <!--nav for normal-->
+    <nav class="navbar navbar-default navbar-vira">
+      <div class="container">
+        <div class="navigation-bar">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="row">
+                <div class="logo col-xs-2">
+                  <a ui-sref="index.home"><span class="fa fa-viacoin"></span></a>
+                </div>
+                <!--nav for min 992px-->
+                <div class="main-menu col-xs-10">
+                  <ul class="container-fluid nav">
+                      <li class="active">
+                        <a ui-sref="index.home">home</a>
+                      </li>
+                      <li>
+                        <a ui-sref="main.blog">art</a>
+                      </li>
+                      <li>
+                        <a ui-sref="main.music">music</a>
+                      </li>
+                      <li>
+                        <a ui-sref="main.">workstation</a>
+                      </li>
+                      <li>
+                        <a ui-sref="main.">team</a>
+                      </li>
+                      <li>
+                        <a ui-sref="main.">contact</a>
+                      </li>
+                </div>
+              </div>
+            </div>
+            <div class="menu-mobile text-right">
+              <div class="menu m">
+                <a><span class="ion-navicon ion-android-menu"></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="intro-box">
+            <div class="intro">
+              <h1 class="wow fadeInDown">Welcome to lichenyang's</h1>
+              <p class="wow fadeInDown">Follow the notes upon the journey</p>
+              <a class="btn apollo-btn" href="mailto:wulichenyang@163.com?subject=联系信">
+                <span>Explore me</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+	<section class="home-title content-wrapper">
+		<div class="container pad_top15px">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="blog-art-title wow fadeInDown">
+						My Journey
+					</h2>
+					<div class="row">
+
+						<art-intro-item ng-repeat="data in artInfo" data="data"></art-intro-item>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+  <main class="content-wrapper fadeIn">
+      <div ui-view="content" class="main-content"></div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <p>Copyright @2016 - 2017 一杯子乌龙奶茶</p>
+          <p>All Rights Reserved</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script type="text/javascript" src="assets/js/init.min.js"></script>
