@@ -4,11 +4,11 @@
 
 .my-music {
 	.blog-music-title {
-			padding: 3rem;
+			padding: 30px;
 			color: #575a5b;
 			text-align: center;
 			font-weight: 200;
-			font-size: 3rem;
+			font-size: 30px;
 			border-bottom: 1px solid #eee;
 	}
 	.music-content-bg {
@@ -19,31 +19,31 @@
 		.music-inner {
 			position: relative;
 			height:  100%;
-			padding-bottom: 10rem;
+			padding-bottom: 100px;
 			margin: 0 auto;
 			.music-inner-title {
 				position: relative;
 				margin: 0 auto;
-				width: 49rem;
-				height: 13rem;
-				line-height: 13rem;
+				width: 490px;
+				height: 130px;
+				line-height: 130px;
 				h2 {
 					text-align: center;
-					line-height: 13rem;
+					line-height: 130px;
 					color: #ccc;
 				}
 				.music-inner-line{
 					display: block;
-					margin-top: 6.5rem;
+					margin-top: 65px;
 					background-color: #ccc;
-					height: .1rem;
+					height: 1px;
 				}
 			}
 			@media screen and (max-width: 768px) {
 				.music-inner-title {
-					width: 32rem;
+					width: 320px;
 					h2 {
-						font-size: 2.2rem !important;
+						font-size: 22px !important;
 					}
 				}
 			}
@@ -53,7 +53,7 @@
 					margin-bottom: 0;
 					padding: 0;
 					.music-list-item {
-						height: 56rem;
+						height: 560px;
 						position: relative;
 						overflow: hidden;
 						&:hover .music-content .music-item-bg {
@@ -82,13 +82,13 @@
 							display: none;
 						}
 						.music-content {
-							bottom: 2rem;
+							bottom: 20px;
 							.music-item-bg {
 								position: absolute;
 								top: 0;
 								left: 0;
 								width: 100%;
-								height: 56rem;
+								height: 560px;
 								background-image: url(/music/music-item-bg.jpg);
 								transition: transform .75s;
 								-moz-transition: transform .75s; /* Firefox 4 */
@@ -121,10 +121,10 @@
 							.music-play-icon {
 								position: absolute;
 								left: 50%;
-								top: 20rem;
-								margin: -3.5rem;
-								width: 7rem;
-								height: 7rem;
+								top: 200px;
+								margin: -35px;
+								width: 70px;
+								height: 70px;
 								filter: alpha(opacity=0);
 								opacity: 0;
 								-webkit-transform: scale(.7);
@@ -139,19 +139,19 @@
 							.music-line {
 								position: absolute;
 								left: 50%;
-								top: 20rem;
-								margin-left: -3rem;
-								width: 6rem;
-								height: .1rem;
+								top: 200px;
+								margin-left: -30px;
+								width: 60px;
+								height: 1px;
 								background: rgba(255,255,255,.3)
 							}
 							.music-item-header {
 								position: absolute;
-								top: 6rem;
+								top: 60px;
 								left: 50%;
-								margin-left: -10rem;
-								width: 20rem;
-								height: 11rem;
+								margin-left: -100px;
+								width: 200px;
+								height: 110px;
 								text-align: center;
 								a {
 									cursor: pointer;
@@ -163,36 +163,36 @@
 									color: #fff;
 								}
 								h4 {
-									margin-bottom: 1rem;
+									margin-bottom: 10px;
 									font-weight: 200;
-									font-size: 2.4rem;
+									font-size: 24px;
 								}
 								h3 {
 									font-weight: 400;
-									font-size: 3.6rem;
+									font-size: 36px;
 								}
 							}
 							.song-list {
 								position: absolute;
-								top: 28rem;
+								top: 280px;
 								left: 50%;
-								margin-left: -9rem;
+								margin-left: -90px;
 								padding-left: 0;
-								width: 20rem;
+								width: 200px;
 								white-space: nowrap;
 								.song-item {
 									position: relative;
-									padding-left: 1.8rem;
-									margin-bottom: 1rem;
+									padding-left: 18px;
+									margin-bottom: 10px;
 									text-align: left;
 									cursor: pointer;
 									.song-number {
 										position: absolute;
 										left: 0;
 										top: 0;
-										line-height: 3rem;
+										line-height: 30px;
 										color: #fff;
-										font-size: 1.6rem;
+										font-size: 16px;
 										font-family: -webkit-body, Tahoma;
 									}
 									a.song-info {
@@ -209,12 +209,12 @@
 										}
 										h4 {
 											margin-bottom: 0;
-											line-height: 3rem;
-											font-size: 1.6rem;
+											line-height: 30px;
+											font-size: 16px;
 										}
 										h5 {
 											margin-bottom: 0;
-											font-size: 1.3rem;
+											font-size: 13px;
 											filter: alpha(opacity=50);
 											opacity: .5;
 										}
@@ -227,7 +227,7 @@
 							.music-content {
 								position: relative;
 								overflow: hidden;
-								height: 56rem;
+								height: 560px;
 								.music-item-bg {
 									background-size: 400%;
 								}

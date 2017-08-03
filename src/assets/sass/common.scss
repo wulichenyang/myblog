@@ -232,11 +232,11 @@ ul, ol {
 	margin-bottom: 0;
 	i[class="fa fa-close"] {
 		position: absolute;
-		width: 4rem;
-		height: 4rem;
+		width: 40px;
+		height: 40px;
 		right: 0; 
-		font-size: 2rem;
-		line-height: 5rem;
+		font-size: 20px;
+		line-height: 50px;
 		color: #fff;
 	}
 }
@@ -267,28 +267,28 @@ ul, ol {
 	.menu-mobile {
 		display: none;
 		position: absolute;
-		right: 2rem
+		right: 20px
 	}
 	.main-menu {
-		font-size: 2.4rem;
+		font-size: 24px;
 		ul {
 			margin: 0;
 		}
 		@media screen and (max-width: 1200px) {
 			ul {
-				font-size: 1.8rem;
+				font-size: 18px;
 			}
 		}
 		@media screen and (max-width: 992px) {
 			ul {
-				line-height: 3rem;
-				font-size: 1.2rem;
+				line-height: 30px;
+				font-size: 12px;
 			}
 		}
 		ul>li {
 			float: left;
 			a {
-				padding: .6rem 2rem;
+				padding: 6px 20px;
 				font-family: Calibri;
 				text-transform: uppercase;
 			}
@@ -384,10 +384,10 @@ section.header {
 }
 @media screen and (max-width: 768px) {
 	.header h1{
-		font-size: 3rem;
+		font-size: 30px;
 	}
 	.header p {
-		font-size: 2.4rem;
+		font-size: 24px;
 	}
 }
 .header .vira-btn{
@@ -424,7 +424,7 @@ section.header {
 	padding: 60px 0;
 	p {
 		margin: 0;
-		line-height: 3rem;
+		line-height: 30px;
 		font-family: loveto;
 		font-size: 14px;
 		color: #777;

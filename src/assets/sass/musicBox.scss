@@ -7,7 +7,7 @@
     overflow: hidden;
     outline: 0;
     color: #333;
-    font-size: 1.4rem;
+    font-size: 14px;
     -webkit-overflow-scrolling: touch;
     background-color: rgb(148, 120, 94);
     z-index: 9999;
@@ -24,7 +24,7 @@
             top: 11%;
             bottom: 22%;
             width: 100%;
-            min-height: 33rem;
+            min-height: 330px;
             .music-box-normal {
                 margin-right: 30%;
                 @media screen and(max-width: 767px) {
@@ -38,20 +38,20 @@
                     font-size: 0;
                     .tool-btn {
                         margin-right: 6px;
-                        padding: 0 2.3rem;
+                        padding: 0 23px;
                         display: inline-block;
-                        height: 3.8rem;
+                        height: 38px;
                         color: #fff;
                         opacity: .8;
                         filter: alpha(opacity=80);
                         background-color: transparent;
                         text-align: center;
-                        font-size: 1.4rem;
-                        line-height: 3.8rem;
+                        font-size: 14px;
+                        line-height: 38px;
                         white-space: nowrap;
                         transition: none;
                         border: solid 1px rgba(255,255,255,.2);
-                        border-radius: .2rem;
+                        border-radius: 2px;
                         overflow: hidden;
                         box-sizing: content-box;
                         &:hover, &:focus {
@@ -63,8 +63,8 @@
                             border-color: rgba(255,255,255,1);
                         }
                         & .fa {
-                            font-size: 1.6rem;
-                            margin-right: .4rem;
+                            font-size: 16x;
+                            margin-right: 4px;
                         }
                     }
                     @media screen and(max-width: 767px) {
@@ -75,7 +75,7 @@
                     position: relative;
                     overflow: hidden;
                     .main-menu-content {
-                        height: 45rem;
+                        height: 450px;
                         overflow-x: hidden;
                         overflow-y: scroll;
                         .menu-table {
@@ -86,10 +86,10 @@
                                 &.current-song {
                                     color: #fff;
                                     span.inner-index {
-                                        text-indent: 999rem;
+                                        text-indent: 9990px;
                                         background-image: url('/music/wave.gif');
                                         background-repeat: no-repeat;
-                                        background-position: 1rem .5rem;
+                                        background-position: 10px 5px;
                                     }
                                 }
                                 &.current-pause {
@@ -113,8 +113,8 @@
                                 }
                                 td, th {
                                     position: relative;
-                                    padding: 1.5rem 0;
-                                    padding-left: 3.5rem;
+                                    padding: 15px 0;
+                                    padding-left: 35px;
                                     font-weight: 400;
                                     white-space: nowrap;
                                     overflow: hidden;
@@ -125,13 +125,13 @@
                                         .inner-tool-wrapper {
                                             display: none;
                                             position: absolute;
-                                            top: .7rem;
+                                            top: 7px;
                                             right: 0;
                                             .inner-tool-btn {
                                                 display: inline-block;
-                                                margin-right: .5rem;
-                                                width: 3.6rem;
-                                                height: 3.6rem;
+                                                margin-right: 5px;
+                                                width: 36px;
+                                                height: 36px;
                                                 background-image: url('/music/music-icon-list.png');
                                                 &.inner-play {
                                                     background-position: -80px 0;
@@ -164,13 +164,13 @@
                                         width: 27%;
                                     }
                                     &:nth-child(3) {
-                                        padding-right: 10rem;
+                                        padding-right: 100px;
                                     }
                                     .inner-index {
                                         position: absolute;
                                         left: 0;
-                                        width: 2rem;
-                                        max-width: 10rem;
+                                        width: 20px;
+                                        max-width: 100px;
                                         text-align: right;
                                     }
                                     span.inner-time {
@@ -179,10 +179,10 @@
                                     i.inner-delete {
                                         display: none;
                                         position: absolute;
-                                        top: .7rem;
-                                        left: 3.4rem;
-                                        width: 3.6rem;
-                                        height: 3.6rem;
+                                        top: 7px;
+                                        left: 34px;
+                                        width: 36px;
+                                        height: 36px;
                                         background-image: url('/music/music-icon-list.png');
                                         background-position: -80px -160px;
                                         &:hover {
@@ -216,8 +216,8 @@
             a.btn-control {
                 position: absolute;
                 top: 0;
-                width: 2rem;
-                height: 2rem;
+                width: 20px;
+                height: 20px;
                 background-image: url('/music/music-icon-control.png');
                 background-repeat: no-repeat;
                 opacity: .8;
@@ -228,13 +228,13 @@
                     filter: none
                 }
                 &.btn-prev {
-                    top: .4rem;
+                    top: 4px;
                     left: 0;
                     background-position: 0 -30px;
                 }
                 &.btn-pause, &.btn-play {
                     left: 7%;
-                    height: 3rem;
+                    height: 30px;
                     background-position: -30px 0;
                 }
                 &.btn-pause {
@@ -244,7 +244,7 @@
                     background-position: 0 0;
                 }
                 &.btn-next {
-                    top: .4rem;
+                    top: 4px;
                     left: 13.5%;
                     background-position: 0 -52px;
                 }
@@ -271,7 +271,7 @@
                 margin: 0 30% 0 20%;
                 .music-info {
                     text-align: left;
-                    padding-right: 12rem;
+                    padding-right: 120px;
                     overflow: hidden;
                     text-overflow: ellipsis;
                     white-space: nowrap;
@@ -283,29 +283,29 @@
                 }
                 .music-process {
                     position: relative;
-                    padding-top: .6rem;
-                    height: .8rem;
+                    padding-top: 6px;
+                    height: 8px;
                     cursor: pointer;
                     .process-bg {
                         width: 100%;
-                        height: .25rem;
+                        height: 2.5px;
                         background-color: rgba(255, 255, 255, .1);
                     }
                     .process-play {
                         position: absolute;
                         bottom: 0;
                         left: 0;
-                        height: .25rem;
+                        height: 2.5px;
                         background-color: rgba(255, 255, 255, .7);
                         &:after {
                             content: "";
                             position: absolute;
-                            top: -.5rem;
-                            right: -0.8rem;
-                            width: 1.2rem;
-                            height: 1.2rem;
+                            top: -5px;
+                            right: -8px;
+                            width: 12px;
+                            height: 12px;
                             background-image:  url('/music/music-icon-control.png'); 
-                            background-position: 0 -16.9rem;
+                            background-position: 0 -169px;
                         }
                     }
 

@@ -146,7 +146,7 @@
       }
       .detail-box-content {
         position: absolute;
-        padding: 3rem;
+        padding: 30px;
         height: 100%;
         h3,
         p {
@@ -159,42 +159,42 @@
         
         p {
           overflow: hidden;
-          max-height: 18rem;
+          max-height: 180px;
           @media screen and (max-width: $screen-lg) {
-            max-height: 13.5rem;
+            max-height: 135x;
           }
           @media screen and (max-width: $screen-md) {
-            max-height: 11rem;
+            max-height: 110px;
             & + a {
               display: none;
             }
           }
           @media screen and (max-width: 767px) {
-            max-height: 25rem;
+            max-height: 250px;
             & + a {
               display: initial;
             }
           }
           @media screen and (max-width: $screen-xs) {
-            max-height: 25rem;
+            max-height: 250px;
             & + a {
               display: initial;
             }
           }
           @media screen and (max-width: 460px) {
-            max-height: 18rem;
+            max-height: 180px;
           }
           @media screen and (max-width: 390px) {
-            max-height: 13.5rem;
+            max-height: 135px;
           }
           @media screen and (max-width: 340px) {
-            max-height: 9rem;
+            max-height: 90px;
           }
         }
         .vira-btn {
           position: absolute;
           left: 50%;
-          bottom: 1rem;
+          bottom: 10px;
           margin-left: -80px;
           padding: 10px 20px;
           color: #818181;
@@ -296,14 +296,14 @@
   .section-header {
     h2.section-title {
       margin-bottom: 20px;
-      font-size: 3rem;
+      font-size: 30px;
       font-weight: 600;
     }
     p {
       font-family: loveto;
-      font-size: 1.5rem;
+      font-size: 15px;
       font-weight: 300;
-      line-height: 2.5rem;
+      line-height: 25px;
       letter-spacing: .045em;
       color: #626262;
       word-break: break-all;

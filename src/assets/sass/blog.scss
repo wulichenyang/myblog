@@ -3,24 +3,24 @@
 }
 .main-intro-box {
 	display: table;
-	padding-top: 22rem;
+	padding-top: 220px;
 	text-align: center;
 	width: 100%;
 	.intro {
 		h1 {
-            padding-top: 8rem;
-			padding-bottom: 5rem;
+            padding-top: 80px;
+			padding-bottom: 50px;
 		}
 	}
 }
 .my-blog,
 .home-title {
     .blog-art-title {
-        padding: 3rem;
+        padding: 30px;
         color: #575a5b;
         text-align: center;
         font-weight: 200;
-        font-size: 3rem;
+        font-size: 30px;
         border-bottom: 1px solid #eee;
     }
     .art-intro-wrapper {
@@ -28,7 +28,7 @@
         box-shadow: 0px 1px #eee;
         padding: 0;
         cursor: pointer;
-        margin-bottom: 5rem;
+        margin-bottom: 50px;
         overflow: hidden;
         &:hover {
             box-shadow: 0 0 10px #ddd;
@@ -53,7 +53,7 @@
         }
         .art-img-wrapper{
             position: relative;
-            height: 20rem;
+            height: 200px;
             overflow: hidden;
             img {
                 transition: ease .5s;
@@ -71,7 +71,7 @@
                 opacity: 0;
             }
             .title-tip {
-                padding: 2rem;
+                padding: 20px;
                 transition: ease .5s;
                 position: absolute;
                 padding-bottom: 20px;
@@ -107,19 +107,19 @@
             }
         }
         .art-content-wrapper {
-            height: 26rem;
+            height: 260px;
             transition: all  ease .3s;
             -moz-transition: all  ease .3s;
             -webkit-transition: all  ease .3s;
-            padding: 2rem;
+            padding: 20px;
             text-align: left;
             h2 {
-                height: 3rem;
-                line-height: 3rem;
-                padding-bottom: 3.5rem;
+                height: 30px;
+                line-height: 30px;
+                padding-bottom: 35px;
                 margin-bottom: 0;
                 font-family: 'lovelo';
-                font-size: 2rem;
+                font-size: 20px;
                 font-weight: 700;
                 border-bottom: 1px solid #eee;
                 overflow: hidden;
@@ -127,8 +127,8 @@
                 text-overflow: ellipsis;
             }
             p {
-                height: 12rem;
-                padding: .6rem 0;
+                height: 120px;
+                padding: 6px 0;
                 display: -webkit-box;
                 text-overflow: ellipsis;
                 -webkit-line-clamp: 5;
@@ -137,20 +137,20 @@
                 word-break: break-all;
             }
             .artist-wrapper {
-                padding-top: 1rem;
+                padding-top: 10px;
                 img {
                     position: absolute;
                     display: inline-block;
-                    width: 4rem;
-                    height: 4rem;
+                    width: 40px;
+                    height: 40px;
                     border-radius: 50%;
                 }
                 span {
                     display: block;
-                    padding-left: 6rem;
-                    line-height: 5rem;
+                    padding-left: 60px;
+                    line-height: 50px;
                     color: #666;
-                    font-size: 2.5rem;
+                    font-size: 25px;
                     white-space: nowrap;
                     text-overflow: ellipsis;
                     overflow: hidden;
